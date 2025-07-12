@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-router'
 import { IconArrowUpRight, IconLoader2 } from '@tabler/icons-react'
 import { SignedIn, useAuth, UserButton } from '@clerk/clerk-react'
+import { useTranslation } from 'react-i18next'
 import { ClerkLogo } from '@/assets/clerk-logo'
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/layout/header'
@@ -14,7 +15,7 @@ import { Main } from '@/components/layout/main'
 import { LearnMore } from '@/components/learn-more'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
-import { columns } from '@/features/users/components/users-columns'
+import { createColumns } from '@/features/users/components/users-columns'
 import { UsersDialogs } from '@/features/users/components/users-dialogs'
 import { UsersPrimaryButtons } from '@/features/users/components/users-primary-buttons'
 import { UsersTable } from '@/features/users/components/users-table'
@@ -29,6 +30,7 @@ export const Route = createFileRoute('/clerk/_authenticated/user-management')({
 function UserManagement() {
   const [opened, setOpened] = useState(true)
   const { isLoaded, isSignedIn } = useAuth()
+  const { t } = useTranslation()
 
   if (!isLoaded) {
     return (
@@ -44,6 +46,8 @@ function UserManagement() {
 
   // Parse user list
   const userList = userListSchema.parse(users)
+  // Создаем колонки с функцией перевода
+  const columns = createColumns(t)
   return (
     <>
       <SignedIn>
