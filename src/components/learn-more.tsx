@@ -27,7 +27,7 @@ export function LearnMore({
         className={cn('size-5 rounded-full', triggerProps?.className)}
       >
         <Button variant='outline' size='icon'>
-          <span className='sr-only'>Learn more</span>
+          <span className='sr-only'>Узнать больше</span>
           <IconQuestionMark className='size-3' />
         </Button>
       </PopoverTrigger>

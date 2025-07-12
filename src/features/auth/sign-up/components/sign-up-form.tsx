@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { IconBrandFacebook, IconBrandGithub } from '@tabler/icons-react'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
@@ -18,29 +19,31 @@ import { PasswordInput } from '@/components/password-input'
 
 type SignUpFormProps = HTMLAttributes<HTMLFormElement>
 
-const formSchema = z
+const createFormSchema = (t: (key: string) => string) => z
   .object({
     email: z
       .string()
-      .min(1, { message: 'Please enter your email' })
-      .email({ message: 'Invalid email address' }),
+      .min(1, { message: t('auth.validation.email_required') })
+      .email({ message: t('auth.validation.email_invalid') }),
     password: z
       .string()
       .min(1, {
-        message: 'Please enter your password',
+        message: t('auth.validation.password_required'),
       })
       .min(7, {
-        message: 'Password must be at least 7 characters long',
+        message: t('auth.validation.password_min_length'),
       }),
     confirmPassword: z.string(),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match.",
+    message: t('auth.validation.passwords_not_match'),
     path: ['confirmPassword'],
   })
 
 export function SignUpForm({ className, ...props }: SignUpFormProps) {
+  const { t } = useTranslation('common')
   const [isLoading, setIsLoading] = useState(false)
+  const formSchema = createFormSchema(t)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -73,9 +76,9 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
           name='email'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t('auth.sign_up.email_label')}</FormLabel>
               <FormControl>
-                <Input placeholder='name@example.com' {...field} />
+                <Input placeholder={t('auth.sign_up.email_placeholder')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -86,9 +89,9 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
           name='password'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{t('auth.sign_up.password_label')}</FormLabel>
               <FormControl>
-                <PasswordInput placeholder='********' {...field} />
+                <PasswordInput placeholder={t('auth.sign_up.password_placeholder')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -99,16 +102,16 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
           name='confirmPassword'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Confirm Password</FormLabel>
+              <FormLabel>{t('auth.sign_up.confirm_password_label')}</FormLabel>
               <FormControl>
-                <PasswordInput placeholder='********' {...field} />
+                <PasswordInput placeholder={t('auth.sign_up.confirm_password_placeholder')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button className='mt-2' disabled={isLoading}>
-          Create Account
+          {t('auth.sign_up.button')}
         </Button>
 
         <div className='relative my-2'>
@@ -117,7 +120,7 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
           </div>
           <div className='relative flex justify-center text-xs uppercase'>
             <span className='bg-background text-muted-foreground px-2'>
-              Or continue with
+              {t('auth.sign_up.or_continue_with')}
             </span>
           </div>
         </div>

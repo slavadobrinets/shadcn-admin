@@ -1,10 +1,11 @@
 import { ColumnDef } from '@tanstack/react-table'
 import { Badge } from '@/components/ui/badge'
 import { Checkbox } from '@/components/ui/checkbox'
-import { labels, priorities, statuses } from '../data/data'
+import { getLabels, getPriorities, getStatuses } from '../data/data'
 import { Task } from '../data/schema'
 import { DataTableColumnHeader } from './data-table-column-header'
 import { DataTableRowActions } from './data-table-row-actions'
+import { useTranslation } from 'react-i18next'
 
 export const columns: ColumnDef<Task>[] = [
   {
@@ -16,7 +17,7 @@ export const columns: ColumnDef<Task>[] = [
           (table.getIsSomePageRowsSelected() && 'indeterminate')
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label='Select all'
+        aria-label={useTranslation('common').t('tasks.select_all')}
         className='translate-y-[2px]'
       />
     ),
@@ -24,7 +25,7 @@ export const columns: ColumnDef<Task>[] = [
       <Checkbox
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label='Select row'
+        aria-label={useTranslation('common').t('tasks.select_row')}
         className='translate-y-[2px]'
       />
     ),
@@ -34,7 +35,7 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: 'id',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Task' />
+      <DataTableColumnHeader column={column} title={useTranslation('common').t('tasks.column.task')} />
     ),
     cell: ({ row }) => <div className='w-[80px]'>{row.getValue('id')}</div>,
     enableSorting: false,
@@ -43,9 +44,10 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: 'title',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Title' />
+      <DataTableColumnHeader column={column} title={useTranslation('common').t('tasks.column.title')} />
     ),
     cell: ({ row }) => {
+      const labels = getLabels()
       const label = labels.find((label) => label.value === row.original.label)
 
       return (
@@ -61,9 +63,10 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: 'status',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Status' />
+      <DataTableColumnHeader column={column} title={useTranslation('common').t('tasks.column.status')} />
     ),
     cell: ({ row }) => {
+      const statuses = getStatuses()
       const status = statuses.find(
         (status) => status.value === row.getValue('status')
       )
@@ -88,9 +91,10 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: 'priority',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Priority' />
+      <DataTableColumnHeader column={column} title={useTranslation('common').t('tasks.column.priority')} />
     ),
     cell: ({ row }) => {
+      const priorities = getPriorities()
       const priority = priorities.find(
         (priority) => priority.value === row.getValue('priority')
       )

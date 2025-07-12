@@ -34,62 +34,64 @@ export const sidebarData: SidebarData = {
       name: 'Shadcn Admin',
       logo: Command,
       plan: 'Vite + ShadcnUI',
+      // TODO: Translate this plan name if it's user-facing and not a technical description
+      // plan: 'Вайт + ШадснЮИ',
     },
     {
       name: 'Acme Inc',
       logo: GalleryVerticalEnd,
-      plan: 'Enterprise',
+      plan: 'Корпоративный',
     },
     {
       name: 'Acme Corp.',
       logo: AudioWaveform,
-      plan: 'Startup',
+      plan: 'Стартап',
     },
   ],
   navGroups: [
     {
-      title: 'General',
+      title: 'sidebar.groups.main',
       items: [
         {
-          title: 'Dashboard',
+          title: 'sidebar.items.dashboard',
           url: '/',
           icon: IconLayoutDashboard,
         },
         {
-          title: 'Tasks',
+          title: 'sidebar.items.tasks',
           url: '/tasks',
           icon: IconChecklist,
         },
         {
-          title: 'Apps',
+          title: 'sidebar.items.apps',
           url: '/apps',
           icon: IconPackages,
         },
         {
-          title: 'Chats',
+          title: 'sidebar.items.chats',
           url: '/chats',
           badge: '3',
           icon: IconMessages,
         },
         {
-          title: 'Users',
+          title: 'sidebar.items.users',
           url: '/users',
           icon: IconUsers,
         },
         {
-          title: 'Secured by Clerk',
+          title: 'sidebar.items.clerk_protected',
           icon: ClerkLogo,
           items: [
             {
-              title: 'Sign In',
+              title: 'sidebar.items.sign_in',
               url: '/clerk/sign-in',
             },
             {
-              title: 'Sign Up',
+              title: 'sidebar.items.sign_up',
               url: '/clerk/sign-up',
             },
             {
-              title: 'User Management',
+              title: 'sidebar.items.user_management',
               url: '/clerk/user-management',
             },
           ],
@@ -97,60 +99,60 @@ export const sidebarData: SidebarData = {
       ],
     },
     {
-      title: 'Pages',
+      title: 'sidebar.groups.pages',
       items: [
         {
-          title: 'Auth',
+          title: 'sidebar.items.authentication',
           icon: IconLockAccess,
           items: [
             {
-              title: 'Sign In',
+              title: 'sidebar.items.sign_in',
               url: '/sign-in',
             },
             {
-              title: 'Sign In (2 Col)',
+              title: 'sidebar.items.sign_in_2_columns',
               url: '/sign-in-2',
             },
             {
-              title: 'Sign Up',
+              title: 'sidebar.items.sign_up',
               url: '/sign-up',
             },
             {
-              title: 'Forgot Password',
+              title: 'sidebar.items.forgot_password',
               url: '/forgot-password',
             },
             {
-              title: 'OTP',
+              title: 'sidebar.items.otp',
               url: '/otp',
             },
           ],
         },
         {
-          title: 'Errors',
+          title: 'sidebar.items.errors',
           icon: IconBug,
           items: [
             {
-              title: 'Unauthorized',
+              title: 'sidebar.items.unauthorized',
               url: '/401',
               icon: IconLock,
             },
             {
-              title: 'Forbidden',
+              title: 'sidebar.items.forbidden',
               url: '/403',
               icon: IconUserOff,
             },
             {
-              title: 'Not Found',
+              title: 'sidebar.items.not_found',
               url: '/404',
               icon: IconError404,
             },
             {
-              title: 'Internal Server Error',
+              title: 'sidebar.items.server_error',
               url: '/500',
               icon: IconServerOff,
             },
             {
-              title: 'Maintenance Error',
+              title: 'sidebar.items.maintenance_error',
               url: '/503',
               icon: IconBarrierBlock,
             },
@@ -159,41 +161,41 @@ export const sidebarData: SidebarData = {
       ],
     },
     {
-      title: 'Other',
+      title: 'sidebar.groups.other',
       items: [
         {
-          title: 'Settings',
+          title: 'sidebar.items.settings',
           icon: IconSettings,
           items: [
             {
-              title: 'Profile',
+              title: 'sidebar.items.profile',
               url: '/settings',
               icon: IconUserCog,
             },
             {
-              title: 'Account',
+              title: 'sidebar.items.account',
               url: '/settings/account',
               icon: IconTool,
             },
             {
-              title: 'Appearance',
+              title: 'sidebar.items.appearance',
               url: '/settings/appearance',
               icon: IconPalette,
             },
             {
-              title: 'Notifications',
+              title: 'sidebar.items.notifications',
               url: '/settings/notifications',
               icon: IconNotification,
             },
             {
-              title: 'Display',
+              title: 'sidebar.items.display',
               url: '/settings/display',
               icon: IconBrowserCheck,
             },
           ],
         },
         {
-          title: 'Help Center',
+          title: 'sidebar.items.help_center',
           url: '/help-center',
           icon: IconHelp,
         },

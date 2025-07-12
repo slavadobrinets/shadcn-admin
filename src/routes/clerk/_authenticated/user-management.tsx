@@ -59,10 +59,10 @@ function UserManagement() {
           <Main>
             <div className='mb-2 flex flex-wrap items-center justify-between space-y-2'>
               <div>
-                <h2 className='text-2xl font-bold tracking-tight'>User List</h2>
+                <h2 className='text-2xl font-bold tracking-tight'>Список пользователей</h2>
                 <div className='flex gap-1'>
                   <p className='text-muted-foreground'>
-                    Manage your users and their roles here.
+                    Управляйте своими пользователями и их ролями здесь.
                   </p>
                   <LearnMore
                     open={opened}
@@ -70,7 +70,7 @@ function UserManagement() {
                     contentProps={{ side: 'right' }}
                   >
                     <p>
-                      This is the same as{' '}
+                      Это то же самое, что{' '}
                       <Link
                         to='/users'
                         className='text-blue-500 underline decoration-dashed underline-offset-2'
@@ -80,8 +80,7 @@ function UserManagement() {
                     </p>
 
                     <p className='mt-4'>
-                      You can sign out or manage/delete your account via the
-                      User Profile menu in the top-right corner of the page.
+                      Вы можете выйти или управлять/удалить свою учетную запись через меню профиля пользователя в правом верхнем углу страницы.
                       <IconArrowUpRight className='inline-block size-4' />
                     </p>
                   </LearnMore>
@@ -130,13 +129,13 @@ function Unauthorized() {
     <div className='h-svh'>
       <div className='m-auto flex h-full w-full flex-col items-center justify-center gap-2'>
         <h1 className='text-[7rem] leading-tight font-bold'>401</h1>
-        <span className='font-medium'>Unauthorized Access</span>
+        <span className='font-medium'>Несанкционированный доступ</span>
         <p className='text-muted-foreground text-center'>
-          You must be authenticated via Clerk{' '}
+          Вы должны быть аутентифицированы через Clerk{' '}
           <sup>
             <LearnMore open={opened} onOpenChange={setOpened}>
               <p>
-                This is the same as{' '}
+                Это то же самое, что{' '}
                 <Link
                   to='/users'
                   className='text-blue-500 underline decoration-dashed underline-offset-2'
@@ -145,23 +144,22 @@ function Unauthorized() {
                 </Link>
                 .{' '}
               </p>
-              <p>You must first sign in using Clerk to access this route. </p>
+              <p>Вы должны сначала войти в систему, используя Clerk, чтобы получить доступ к этому маршруту. </p>
 
               <p className='mt-4'>
-                After signing in, you'll be able to sign out or delete your
-                account via the User Profile dropdown on this page.
+                После входа в систему вы сможете выйти или удалить свою учетную запись через меню профиля пользователя в правом верхнем углу страницы.
               </p>
             </LearnMore>
           </sup>
           <br />
-          to access this resource.
+          для доступа к этому ресурсу.
         </p>
         <div className='mt-6 flex gap-4'>
           <Button variant='outline' onClick={() => history.go(-1)}>
-            Go Back
+            Назад
           </Button>
           <Button onClick={() => navigate({ to: '/clerk/sign-in' })}>
-            <ClerkLogo className='invert' /> Sign in
+            <ClerkLogo className='invert' /> Войти
           </Button>
         </div>
         <div className='mt-4 h-8 text-center'>
@@ -169,11 +167,11 @@ function Unauthorized() {
             <>
               <p>
                 {countdown > 0
-                  ? `Redirecting to Sign In page in ${countdown}s`
-                  : `Redirecting...`}
+                  ? `Перенаправление на страницу входа через ${countdown}с`
+                  : `Перенаправление...`}
               </p>
               <Button variant='link' onClick={() => setCancelled(true)}>
-                Cancel Redirect
+                Отменить перенаправление
               </Button>
             </>
           )}

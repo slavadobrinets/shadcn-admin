@@ -3,6 +3,7 @@ import { format } from 'date-fns'
 import { useForm } from 'react-hook-form'
 import { CalendarIcon, CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { showSubmittedData } from '@/utils/show-submitted-data'
 import { Button } from '@/components/ui/button'
@@ -47,16 +48,16 @@ const accountFormSchema = z.object({
   name: z
     .string()
     .min(2, {
-      message: 'Name must be at least 2 characters.',
+      message: 'settings.account.name_min',
     })
     .max(30, {
-      message: 'Name must not be longer than 30 characters.',
+      message: 'settings.account.name_max',
     }),
   dob: z.date({
-    required_error: 'A date of birth is required.',
+    required_error: 'settings.account.dob_required',
   }),
   language: z.string({
-    required_error: 'Please select a language.',
+    required_error: 'settings.account.language_required',
   }),
 })
 
@@ -68,6 +69,7 @@ const defaultValues: Partial<AccountFormValues> = {
 }
 
 export function AccountForm() {
+  const { t } = useTranslation('common')
   const form = useForm<AccountFormValues>({
     resolver: zodResolver(accountFormSchema),
     defaultValues,
@@ -85,13 +87,12 @@ export function AccountForm() {
           name='name'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{t('settings.account.name')}</FormLabel>
               <FormControl>
-                <Input placeholder='Your name' {...field} />
+                <Input placeholder={t('settings.account.name_placeholder')} {...field} />
               </FormControl>
               <FormDescription>
-                This is the name that will be displayed on your profile and in
-                emails.
+                {t('settings.account.name_description')}
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -102,7 +103,7 @@ export function AccountForm() {
           name='dob'
           render={({ field }) => (
             <FormItem className='flex flex-col'>
-              <FormLabel>Date of birth</FormLabel>
+              <FormLabel>{t('settings.account.dob')}</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -116,7 +117,7 @@ export function AccountForm() {
                       {field.value ? (
                         format(field.value, 'MMM d, yyyy')
                       ) : (
-                        <span>Pick a date</span>
+                        <span>{t('settings.account.dob_placeholder')}</span>
                       )}
                       <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
                     </Button>
@@ -134,7 +135,7 @@ export function AccountForm() {
                 </PopoverContent>
               </Popover>
               <FormDescription>
-                Your date of birth is used to calculate your age.
+                {t('settings.account.dob_description')}
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -145,7 +146,7 @@ export function AccountForm() {
           name='language'
           render={({ field }) => (
             <FormItem className='flex flex-col'>
-              <FormLabel>Language</FormLabel>
+              <FormLabel>{t('settings.account.language')}</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -158,18 +159,18 @@ export function AccountForm() {
                       )}
                     >
                       {field.value
-                        ? languages.find(
+                        ? t(`settings.account.languages.${languages.find(
                             (language) => language.value === field.value
-                          )?.label
-                        : 'Select language'}
+                          )?.label}`)
+                        : t('settings.account.language_placeholder')}
                       <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
                 <PopoverContent className='w-[200px] p-0'>
                   <Command>
-                    <CommandInput placeholder='Search language...' />
-                    <CommandEmpty>No language found.</CommandEmpty>
+                    <CommandInput placeholder={t('settings.account.language_search')} />
+                    <CommandEmpty>{t('settings.account.language_not_found')}</CommandEmpty>
                     <CommandGroup>
                       <CommandList>
                         {languages.map((language) => (
@@ -188,7 +189,7 @@ export function AccountForm() {
                                   : 'opacity-0'
                               )}
                             />
-                            {language.label}
+                            {t(`settings.account.languages.${language.label}`)}
                           </CommandItem>
                         ))}
                       </CommandList>
@@ -197,13 +198,13 @@ export function AccountForm() {
                 </PopoverContent>
               </Popover>
               <FormDescription>
-                This is the language that will be used in the dashboard.
+                {t('settings.account.language_description')}
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type='submit'>Update account</Button>
+        <Button type='submit'>{t('settings.account.update_account')}</Button>
       </form>
     </Form>
   )

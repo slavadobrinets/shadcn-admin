@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { showSubmittedData } from '@/utils/show-submitted-data'
 import { Button } from '@/components/ui/button'
@@ -23,13 +24,15 @@ import {
 
 type OtpFormProps = HTMLAttributes<HTMLFormElement>
 
-const formSchema = z.object({
-  otp: z.string().min(1, { message: 'Please enter your otp code.' }),
+const createFormSchema = (t: (key: string) => string) => z.object({
+  otp: z.string().min(1, { message: t('auth.validation.otp_required') }),
 })
 
 export function OtpForm({ className, ...props }: OtpFormProps) {
   const navigate = useNavigate()
+  const { t } = useTranslation('common')
   const [isLoading, setIsLoading] = useState(false)
+  const formSchema = createFormSchema(t)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -60,7 +63,7 @@ export function OtpForm({ className, ...props }: OtpFormProps) {
           name='otp'
           render={({ field }) => (
             <FormItem>
-              <FormLabel className='sr-only'>One-Time Password</FormLabel>
+              <FormLabel className='sr-only'>{t('auth.otp.label')}</FormLabel>
               <FormControl>
                 <InputOTP
                   maxLength={6}
@@ -88,7 +91,7 @@ export function OtpForm({ className, ...props }: OtpFormProps) {
           )}
         />
         <Button className='mt-2' disabled={otp.length < 6 || isLoading}>
-          Verify
+          {t('auth.otp.button')}
         </Button>
       </form>
     </Form>

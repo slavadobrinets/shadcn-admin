@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Link } from '@tanstack/react-router'
 import { IconBrandFacebook, IconBrandGithub } from '@tabler/icons-react'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
@@ -19,23 +20,25 @@ import { PasswordInput } from '@/components/password-input'
 
 type UserAuthFormProps = HTMLAttributes<HTMLFormElement>
 
-const formSchema = z.object({
+const createFormSchema = (t: (key: string) => string) => z.object({
   email: z
     .string()
-    .min(1, { message: 'Please enter your email' })
-    .email({ message: 'Invalid email address' }),
+    .min(1, { message: t('auth.validation.email_required') })
+    .email({ message: t('auth.validation.email_invalid') }),
   password: z
     .string()
     .min(1, {
-      message: 'Please enter your password',
+      message: t('auth.validation.password_required'),
     })
     .min(7, {
-      message: 'Password must be at least 7 characters long',
+      message: t('auth.validation.password_min_length'),
     }),
 })
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+  const { t } = useTranslation('common')
   const [isLoading, setIsLoading] = useState(false)
+  const formSchema = createFormSchema(t)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -67,9 +70,9 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           name='email'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t('auth.sign_in.email_label')}</FormLabel>
               <FormControl>
-                <Input placeholder='name@example.com' {...field} />
+                <Input placeholder={t('auth.sign_in.email_placeholder')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -80,22 +83,22 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           name='password'
           render={({ field }) => (
             <FormItem className='relative'>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{t('auth.sign_in.password_label')}</FormLabel>
               <FormControl>
-                <PasswordInput placeholder='********' {...field} />
+                <PasswordInput placeholder={t('auth.sign_in.password_placeholder')} {...field} />
               </FormControl>
               <FormMessage />
               <Link
                 to='/forgot-password'
                 className='text-muted-foreground absolute -top-0.5 right-0 text-sm font-medium hover:opacity-75'
               >
-                Forgot password?
+                {t('auth.sign_in.forgot_password')}
               </Link>
             </FormItem>
           )}
         />
         <Button className='mt-2' disabled={isLoading}>
-          Login
+          {t('auth.sign_in.button')}
         </Button>
 
         <div className='relative my-2'>
@@ -104,7 +107,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </div>
           <div className='relative flex justify-center text-xs uppercase'>
             <span className='bg-background text-muted-foreground px-2'>
-              Or continue with
+              {t('auth.sign_in.or_continue_with')}
             </span>
           </div>
         </div>

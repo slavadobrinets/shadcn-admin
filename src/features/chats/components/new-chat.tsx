@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { IconCheck, IconX } from '@tabler/icons-react'
 import { showSubmittedData } from '@/utils/show-submitted-data'
+import { useTranslation } from 'react-i18next'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -27,6 +28,7 @@ type Props = {
   onOpenChange: (open: boolean) => void
 }
 export function NewChat({ users, onOpenChange, open }: Props) {
+  const { t } = useTranslation('common')
   const [selectedUsers, setSelectedUsers] = useState<User[]>([])
 
   const handleSelectUser = (user: User) => {
@@ -51,11 +53,11 @@ export function NewChat({ users, onOpenChange, open }: Props) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className='sm:max-w-[600px]'>
         <DialogHeader>
-          <DialogTitle>New message</DialogTitle>
+          <DialogTitle>{t('chats.new_chat.title')}</DialogTitle>
         </DialogHeader>
         <div className='flex flex-col gap-4'>
           <div className='flex flex-wrap items-center gap-2'>
-            <span className='text-muted-foreground text-sm'>To:</span>
+            <span className='text-muted-foreground text-sm'>{t('chats.new_chat.to_label')}</span>
             {selectedUsers.map((user) => (
               <Badge key={user.id} variant='default'>
                 {user.fullName}
@@ -75,11 +77,11 @@ export function NewChat({ users, onOpenChange, open }: Props) {
           </div>
           <Command className='rounded-lg border'>
             <CommandInput
-              placeholder='Search people...'
+              placeholder={t('chats.new_chat.search_people')}
               className='text-foreground'
             />
             <CommandList>
-              <CommandEmpty>No people found.</CommandEmpty>
+              <CommandEmpty>{t('chats.new_chat.nothing_found')}</CommandEmpty>
               <CommandGroup>
                 {users.map((user) => (
                   <CommandItem
@@ -116,7 +118,7 @@ export function NewChat({ users, onOpenChange, open }: Props) {
             onClick={() => showSubmittedData(selectedUsers)}
             disabled={selectedUsers.length === 0}
           >
-            Chat
+            {t('chats.new_chat.chat_button')}
           </Button>
         </div>
       </DialogContent>

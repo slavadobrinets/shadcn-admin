@@ -7,6 +7,7 @@ import {
   IconMoon,
   IconSun,
 } from '@tabler/icons-react'
+import { useTranslation } from 'react-i18next'
 import { useSearch } from '@/context/search-context'
 import { useTheme } from '@/context/theme-context'
 import {
@@ -25,6 +26,7 @@ export function CommandMenu() {
   const navigate = useNavigate()
   const { setTheme } = useTheme()
   const { open, setOpen } = useSearch()
+  const { t } = useTranslation('common')
 
   const runCommand = React.useCallback(
     (command: () => unknown) => {
@@ -36,12 +38,12 @@ export function CommandMenu() {
 
   return (
     <CommandDialog modal open={open} onOpenChange={setOpen}>
-      <CommandInput placeholder='Type a command or search...' />
+      <CommandInput placeholder={t('search.placeholder', 'Введите команду или поисковый запрос...')} />
       <CommandList>
         <ScrollArea type='hover' className='h-72 pr-1'>
-          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandEmpty>{t('search.empty', 'Ничего не найдено.')}</CommandEmpty>
           {sidebarData.navGroups.map((group) => (
-            <CommandGroup key={group.title} heading={group.title}>
+            <CommandGroup key={group.title} heading={t(group.title)}>
               {group.items.map((navItem, i) => {
                 if (navItem.url)
                   return (
@@ -55,7 +57,7 @@ export function CommandMenu() {
                       <div className='mr-2 flex h-4 w-4 items-center justify-center'>
                         <IconArrowRightDashed className='text-muted-foreground/80 size-2' />
                       </div>
-                      {navItem.title}
+                      {t(navItem.title)}
                     </CommandItem>
                   )
 
@@ -70,24 +72,24 @@ export function CommandMenu() {
                     <div className='mr-2 flex h-4 w-4 items-center justify-center'>
                       <IconArrowRightDashed className='text-muted-foreground/80 size-2' />
                     </div>
-                    {navItem.title} <IconChevronRight /> {subItem.title}
+                    {t(navItem.title)} <IconChevronRight /> {t(subItem.title)}
                   </CommandItem>
                 ))
               })}
             </CommandGroup>
           ))}
           <CommandSeparator />
-          <CommandGroup heading='Theme'>
+          <CommandGroup heading={t('theme')}>
             <CommandItem onSelect={() => runCommand(() => setTheme('light'))}>
-              <IconSun /> <span>Light</span>
+              <IconSun /> <span>{t('light')}</span>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => setTheme('dark'))}>
               <IconMoon className='scale-90' />
-              <span>Dark</span>
+              <span>{t('dark')}</span>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => setTheme('system'))}>
               <IconDeviceLaptop />
-              <span>System</span>
+              <span>{t('system', 'Системная')}</span>
             </CommandItem>
           </CommandGroup>
         </ScrollArea>

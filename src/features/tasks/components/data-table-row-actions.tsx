@@ -16,8 +16,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { useTasks } from '../context/tasks-context'
-import { labels } from '../data/data'
+import { getLabels } from '../data/data'
 import { taskSchema } from '../data/schema'
+import { useTranslation } from 'react-i18next'
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>
@@ -27,7 +28,7 @@ export function DataTableRowActions<TData>({
   row,
 }: DataTableRowActionsProps<TData>) {
   const task = taskSchema.parse(row.original)
-
+  const { t } = useTranslation('common')
   const { setOpen, setCurrentRow } = useTasks()
 
   return (
@@ -38,7 +39,7 @@ export function DataTableRowActions<TData>({
           className='data-[state=open]:bg-muted flex h-8 w-8 p-0'
         >
           <DotsHorizontalIcon className='h-4 w-4' />
-          <span className='sr-only'>Open menu</span>
+          <span className='sr-only'>{t('tasks.table.open_menu')}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' className='w-[160px]'>
@@ -48,16 +49,16 @@ export function DataTableRowActions<TData>({
             setOpen('update')
           }}
         >
-          Edit
+          {t('tasks.table.edit')}
         </DropdownMenuItem>
-        <DropdownMenuItem disabled>Make a copy</DropdownMenuItem>
-        <DropdownMenuItem disabled>Favorite</DropdownMenuItem>
+        <DropdownMenuItem disabled>{t('tasks.table.make_copy')}</DropdownMenuItem>
+        <DropdownMenuItem disabled>{t('tasks.table.favorite')}</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger>Labels</DropdownMenuSubTrigger>
+          <DropdownMenuSubTrigger>{t('tasks.table.labels')}</DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuRadioGroup value={task.label}>
-              {labels.map((label) => (
+              {getLabels().map((label) => (
                 <DropdownMenuRadioItem key={label.value} value={label.value}>
                   {label.label}
                 </DropdownMenuRadioItem>
@@ -72,7 +73,7 @@ export function DataTableRowActions<TData>({
             setOpen('delete')
           }}
         >
-          Delete
+          {t('tasks.table.delete')}
           <DropdownMenuShortcut>
             <IconTrash size={16} />
           </DropdownMenuShortcut>

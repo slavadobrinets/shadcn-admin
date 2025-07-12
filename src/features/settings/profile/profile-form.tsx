@@ -2,6 +2,7 @@ import { z } from 'zod'
 import { useFieldArray, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Link } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { showSubmittedData } from '@/utils/show-submitted-data'
 import { Button } from '@/components/ui/button'
@@ -28,21 +29,21 @@ const profileFormSchema = z.object({
   username: z
     .string()
     .min(2, {
-      message: 'Username must be at least 2 characters.',
+      message: 'settings.profile.username_min',
     })
     .max(30, {
-      message: 'Username must not be longer than 30 characters.',
+      message: 'settings.profile.username_max',
     }),
   email: z
     .string({
-      required_error: 'Please select an email to display.',
+      required_error: 'settings.profile.email_placeholder',
     })
     .email(),
   bio: z.string().max(160).min(4),
   urls: z
     .array(
       z.object({
-        value: z.string().url({ message: 'Please enter a valid URL.' }),
+        value: z.string().url({ message: 'settings.profile.urls_invalid' }),
       })
     )
     .optional(),
@@ -60,6 +61,7 @@ const defaultValues: Partial<ProfileFormValues> = {
 }
 
 export default function ProfileForm() {
+  const { t } = useTranslation('common')
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
     defaultValues,
@@ -82,13 +84,12 @@ export default function ProfileForm() {
           name='username'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>{t('settings.profile.username')}</FormLabel>
               <FormControl>
                 <Input placeholder='shadcn' {...field} />
               </FormControl>
               <FormDescription>
-                This is your public display name. It can be your real name or a
-                pseudonym. You can only change this once every 30 days.
+                {t('settings.profile.username_description')}
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -99,11 +100,11 @@ export default function ProfileForm() {
           name='email'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t('settings.profile.email')}</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder='Select a verified email to display' />
+                    <SelectValue placeholder={t('settings.profile.email_placeholder')} />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -113,7 +114,7 @@ export default function ProfileForm() {
                 </SelectContent>
               </Select>
               <FormDescription>
-                You can manage verified email addresses in your{' '}
+                {t('settings.profile.email_description')}{' '}
                 <Link to='/'>email settings</Link>.
               </FormDescription>
               <FormMessage />
@@ -125,17 +126,16 @@ export default function ProfileForm() {
           name='bio'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Bio</FormLabel>
+              <FormLabel>{t('settings.profile.bio')}</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder='Tell us a little bit about yourself'
+                  placeholder={t('settings.profile.bio_placeholder')}
                   className='resize-none'
                   {...field}
                 />
               </FormControl>
               <FormDescription>
-                You can <span>@mention</span> other users and organizations to
-                link to them.
+                {t('settings.profile.bio_description')}
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -150,10 +150,10 @@ export default function ProfileForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className={cn(index !== 0 && 'sr-only')}>
-                    URLs
+                    {t('settings.profile.urls')}
                   </FormLabel>
                   <FormDescription className={cn(index !== 0 && 'sr-only')}>
-                    Add links to your website, blog, or social media profiles.
+                    {t('settings.profile.urls_description')}
                   </FormDescription>
                   <FormControl>
                     <Input {...field} />
@@ -170,10 +170,10 @@ export default function ProfileForm() {
             className='mt-2'
             onClick={() => append({ value: '' })}
           >
-            Add URL
+            {t('settings.profile.add_url')}
           </Button>
         </div>
-        <Button type='submit'>Update profile</Button>
+        <Button type='submit'>{t('settings.profile.update_profile')}</Button>
       </form>
     </Form>
   )

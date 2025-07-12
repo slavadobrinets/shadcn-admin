@@ -22,7 +22,7 @@ export function UsersDeleteDialog({ open, onOpenChange, currentRow }: Props) {
     if (value.trim() !== currentRow.username) return
 
     onOpenChange(false)
-    showSubmittedData(currentRow, 'The following user has been deleted:')
+    showSubmittedData(currentRow, 'Следующий пользователь был удален:')
   }
 
   return (
@@ -37,40 +37,40 @@ export function UsersDeleteDialog({ open, onOpenChange, currentRow }: Props) {
             className='stroke-destructive mr-1 inline-block'
             size={18}
           />{' '}
-          Delete User
+          Удалить пользователя
         </span>
       }
       desc={
         <div className='space-y-4'>
           <p className='mb-2'>
-            Are you sure you want to delete{' '}
+            Вы уверены, что хотите удалить{' '}
             <span className='font-bold'>{currentRow.username}</span>?
             <br />
-            This action will permanently remove the user with the role of{' '}
+            Это действие навсегда удалит пользователя с ролью{' '}
             <span className='font-bold'>
               {currentRow.role.toUpperCase()}
             </span>{' '}
-            from the system. This cannot be undone.
+            из системы. Это действие не может быть отменено.
           </p>
 
           <Label className='my-2'>
-            Username:
+            Имя пользователя:
             <Input
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              placeholder='Enter username to confirm deletion.'
+              placeholder='Введите имя пользователя для подтверждения удаления.'
             />
           </Label>
 
           <Alert variant='destructive'>
-            <AlertTitle>Warning!</AlertTitle>
+            <AlertTitle>Внимание!</AlertTitle>
             <AlertDescription>
-              Please be carefull, this operation can not be rolled back.
+              Будьте осторожны, эту операцию нельзя отменить.
             </AlertDescription>
           </Alert>
         </div>
       }
-      confirmText='Delete'
+      confirmText='Удалить'
       destructive
     />
   )

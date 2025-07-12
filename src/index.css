@@ -68,6 +68,8 @@
 @theme inline {
   --font-inter: 'Inter', 'sans-serif';
   --font-manrope: 'Manrope', 'sans-serif';
+  --font-golos: 'Golos Text', 'sans-serif';
+  --font-montserrat: 'Montserrat', 'sans-serif';
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -118,6 +120,11 @@
   body {
     @apply bg-background text-foreground min-h-svh w-full;
   }
+  
+  .font-inter { font-family: var(--font-inter); }  
+  .font-manrope { font-family: var(--font-manrope); }  
+  .font-golos { font-family: var(--font-golos); }  
+  .font-montserrat { font-family: var(--font-montserrat); }
 
   button:not(:disabled),
   [role='button']:not(:disabled) {

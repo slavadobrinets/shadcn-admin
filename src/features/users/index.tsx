@@ -3,7 +3,8 @@ import { Main } from '@/components/layout/main'
 import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
-import { columns } from './components/users-columns'
+import { useTranslation } from 'react-i18next'
+import { createColumns } from './components/users-columns'
 import { UsersDialogs } from './components/users-dialogs'
 import { UsersPrimaryButtons } from './components/users-primary-buttons'
 import { UsersTable } from './components/users-table'
@@ -12,8 +13,11 @@ import { userListSchema } from './data/schema'
 import { users } from './data/users'
 
 export default function Users() {
+  const { t } = useTranslation('common')
   // Parse user list
   const userList = userListSchema.parse(users)
+  // Создаем колонки с функцией перевода
+  const columns = createColumns(t)
 
   return (
     <UsersProvider>
@@ -28,9 +32,9 @@ export default function Users() {
       <Main>
         <div className='mb-2 flex flex-wrap items-center justify-between space-y-2'>
           <div>
-            <h2 className='text-2xl font-bold tracking-tight'>User List</h2>
+            <h2 className='text-2xl font-bold tracking-tight'>{t('users.title')}</h2>
             <p className='text-muted-foreground'>
-              Manage your users and their roles here.
+              {t('users.subtitle')}
             </p>
           </div>
           <UsersPrimaryButtons />

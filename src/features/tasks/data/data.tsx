@@ -8,64 +8,137 @@ import {
   IconExclamationCircle,
   IconStopwatch,
 } from '@tabler/icons-react'
+import { useTranslation } from 'react-i18next'
 
+// Базовые данные без локализации для обратной совместимости
 export const labels = [
   {
     value: 'bug',
-    label: 'Bug',
+    label: 'Ошибка',
   },
   {
     value: 'feature',
-    label: 'Feature',
+    label: 'Функция',
   },
   {
     value: 'documentation',
-    label: 'Documentation',
+    label: 'Документация',
   },
 ]
 
 export const statuses = [
   {
     value: 'backlog',
-    label: 'Backlog',
+    label: 'Бэклог',
     icon: IconExclamationCircle,
   },
   {
     value: 'todo',
-    label: 'Todo',
+    label: 'К выполнению',
     icon: IconCircle,
   },
   {
     value: 'in progress',
-    label: 'In Progress',
+    label: 'В процессе',
     icon: IconStopwatch,
   },
   {
     value: 'done',
-    label: 'Done',
+    label: 'Выполнено',
     icon: IconCircleCheck,
   },
   {
     value: 'canceled',
-    label: 'Canceled',
+    label: 'Отменено',
     icon: IconCircleX,
   },
 ]
 
 export const priorities = [
   {
-    label: 'Low',
+    label: 'Низкий',
     value: 'low',
     icon: IconArrowDown,
   },
   {
-    label: 'Medium',
+    label: 'Средний',
     value: 'medium',
     icon: IconArrowRight,
   },
   {
-    label: 'High',
+    label: 'Высокий',
     value: 'high',
     icon: IconArrowUp,
   },
 ]
+
+// Функции для получения локализованных данных
+export const getLabels = () => {
+  const { t } = useTranslation('common')
+  return [
+    {
+      value: 'bug',
+      label: t('tasks.label.bug'),
+    },
+    {
+      value: 'feature',
+      label: t('tasks.label.feature'),
+    },
+    {
+      value: 'documentation',
+      label: t('tasks.label.documentation'),
+    },
+  ]
+}
+
+export const getStatuses = () => {
+  const { t } = useTranslation('common')
+  return [
+    {
+      value: 'backlog',
+      label: t('tasks.status.backlog'),
+      icon: IconExclamationCircle,
+    },
+    {
+      value: 'todo',
+      label: t('tasks.status.todo'),
+      icon: IconCircle,
+    },
+    {
+      value: 'in progress',
+      label: t('tasks.status.in_progress'),
+      icon: IconStopwatch,
+    },
+    {
+      value: 'done',
+      label: t('tasks.status.done'),
+      icon: IconCircleCheck,
+    },
+    {
+      value: 'canceled',
+      label: t('tasks.status.canceled'),
+      icon: IconCircleX,
+    },
+  ]
+}
+
+export const getPriorities = () => {
+  const { t } = useTranslation('common')
+  return [
+    {
+      label: t('tasks.priority.low'),
+      value: 'low',
+      icon: IconArrowDown,
+    },
+    {
+      label: t('tasks.priority.medium'),
+      value: 'medium',
+      icon: IconArrowRight,
+    },
+    {
+      label: t('tasks.priority.high'),
+      value: 'high',
+      icon: IconArrowUp,
+    },
+  ]
+}

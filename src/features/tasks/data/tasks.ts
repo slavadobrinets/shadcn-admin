@@ -2,7 +2,7 @@ export const tasks = [
   {
     id: 'TASK-8782',
     title:
-      "You can't compress the program without quantifying the open-source SSD pixel!",
+      'Невозможно сжать программу без квантификации пикселя SSD с открытым исходным кодом!',
     status: 'in progress',
     label: 'documentation',
     priority: 'medium',
@@ -10,14 +10,14 @@ export const tasks = [
   {
     id: 'TASK-7878',
     title:
-      'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
+      'Попробуйте рассчитать ленту EXE, возможно, это проиндексирует многобайтовый пиксель!',
     status: 'backlog',
     label: 'documentation',
     priority: 'medium',
   },
   {
     id: 'TASK-7839',
-    title: 'We need to bypass the neural TCP card!',
+    title: 'Нам нужно обойти нейронную карту TCP!',
     status: 'todo',
     label: 'bug',
     priority: 'high',
@@ -25,7 +25,7 @@ export const tasks = [
   {
     id: 'TASK-5562',
     title:
-      'The SAS interface is down, bypass the open-source pixel so we can back up the PNG bandwidth!',
+      'Интерфейс SAS не работает, обойдите пиксель с открытым исходным кодом, чтобы мы могли сделать резервную копию пропускной способности PNG!',
     status: 'backlog',
     label: 'feature',
     priority: 'medium',
@@ -33,7 +33,7 @@ export const tasks = [
   {
     id: 'TASK-8686',
     title:
-      "I'll parse the wireless SSL protocol, that should driver the API panel!",
+      'Я проанализирую беспроводной протокол SSL, это должно запустить панель API!',
     status: 'canceled',
     label: 'feature',
     priority: 'medium',
@@ -41,7 +41,7 @@ export const tasks = [
   {
     id: 'TASK-1280',
     title:
-      'Use the digital TLS panel, then you can transmit the haptic system!',
+      'Используйте цифровую панель TLS, тогда вы сможете передать тактильную систему!',
     status: 'done',
     label: 'bug',
     priority: 'high',
@@ -49,7 +49,7 @@ export const tasks = [
   {
     id: 'TASK-7262',
     title:
-      'The UTF8 application is down, parse the neural bandwidth so we can back up the PNG firewall!',
+      'Приложение UTF8 не работает, проанализируйте нейронную пропускную способность, чтобы мы могли сделать резервную копию брандмауэра PNG!',
     status: 'done',
     label: 'feature',
     priority: 'high',
@@ -57,14 +57,14 @@ export const tasks = [
   {
     id: 'TASK-1138',
     title:
-      "Generating the driver won't do anything, we need to quantify the 1080p SMTP bandwidth!",
+      'Генерация драйвера ничего не даст, нам нужно квантифицировать пропускную способность SMTP 1080p!',
     status: 'in progress',
     label: 'feature',
     priority: 'medium',
   },
   {
     id: 'TASK-7184',
-    title: 'We need to program the back-end THX pixel!',
+    title: 'Нам нужно запрограммировать пиксель THX на стороне бэкенда!',
     status: 'todo',
     label: 'feature',
     priority: 'low',
@@ -72,7 +72,7 @@ export const tasks = [
   {
     id: 'TASK-5160',
     title:
-      "Calculating the bus won't do anything, we need to navigate the back-end JSON protocol!",
+      'Вычисление шины ничего не даст, нам нужно навигировать по протоколу JSON на стороне бэкенда!',
     status: 'in progress',
     label: 'documentation',
     priority: 'high',
@@ -80,7 +80,7 @@ export const tasks = [
   {
     id: 'TASK-5618',
     title:
-      "Generating the driver won't do anything, we need to index the online SSL application!",
+      'Генерация драйвера ничего не даст, нам нужно проиндексировать онлайн-приложение SSL!',
     status: 'done',
     label: 'documentation',
     priority: 'medium',
@@ -88,14 +88,14 @@ export const tasks = [
   {
     id: 'TASK-6699',
     title:
-      "I'll transmit the wireless JBOD capacitor, that should hard drive the SSD feed!",
+      'Я передам беспроводной конденсатор JBOD, это должно запустить жесткий диск SSD!',
     status: 'backlog',
     label: 'documentation',
     priority: 'medium',
   },
   {
     id: 'TASK-2858',
-    title: 'We need to override the online UDP bus!',
+    title: 'Нам нужно переопределить онлайн-шину UDP!',
     status: 'backlog',
     label: 'bug',
     priority: 'medium',
@@ -103,14 +103,14 @@ export const tasks = [
   {
     id: 'TASK-9864',
     title:
-      "I'll reboot the 1080p FTP panel, that should matrix the HEX hard drive!",
+      'Я перезагружу панель FTP 1080p, это должно матрицировать жесткий диск HEX!',
     status: 'done',
     label: 'bug',
     priority: 'high',
   },
   {
     id: 'TASK-8404',
-    title: 'We need to generate the virtual HEX alarm!',
+    title: 'Нам нужно сгенерировать виртуальный сигнал тревоги HEX!',
     status: 'in progress',
     label: 'bug',
     priority: 'low',
@@ -118,7 +118,7 @@ export const tasks = [
   {
     id: 'TASK-5365',
     title:
-      "Backing up the pixel won't do anything, we need to transmit the primary IB array!",
+      'Резервное копирование пикселя ничего не даст, нам нужно передать основной массив IB!',
     status: 'in progress',
     label: 'documentation',
     priority: 'low',
@@ -126,7 +126,7 @@ export const tasks = [
   {
     id: 'TASK-1780',
     title:
-      'The CSS feed is down, index the bluetooth transmitter so we can compress the CLI protocol!',
+      'Лента CSS не работает, проиндексируйте передатчик bluetooth, чтобы мы могли сжать протокол CLI!',
     status: 'todo',
     label: 'documentation',
     priority: 'high',
@@ -134,14 +134,14 @@ export const tasks = [
   {
     id: 'TASK-6938',
     title:
-      'Use the redundant SCSI application, then you can hack the optical alarm!',
+      'Используйте избыточное приложение SCSI, тогда вы сможете взломать оптический сигнал тревоги!',
     status: 'todo',
     label: 'documentation',
     priority: 'high',
   },
   {
     id: 'TASK-9885',
-    title: 'We need to compress the auxiliary VGA driver!',
+    title: 'Нам нужно сжать вспомогательный драйвер VGA!',
     status: 'backlog',
     label: 'bug',
     priority: 'high',
@@ -149,7 +149,7 @@ export const tasks = [
   {
     id: 'TASK-3216',
     title:
-      "Transmitting the transmitter won't do anything, we need to compress the virtual HDD sensor!",
+      'Передача передатчика ничего не даст, нам нужно сжать виртуальный датчик HDD!',
     status: 'backlog',
     label: 'documentation',
     priority: 'medium',
@@ -157,7 +157,7 @@ export const tasks = [
   {
     id: 'TASK-9285',
     title:
-      'The IP monitor is down, copy the haptic alarm so we can generate the HTTP transmitter!',
+      'Монитор IP не работает, скопируйте тактильный сигнал тревоги, чтобы мы могли сгенерировать передатчик HTTP!',
     status: 'todo',
     label: 'bug',
     priority: 'high',
@@ -165,7 +165,7 @@ export const tasks = [
   {
     id: 'TASK-1024',
     title:
-      "Overriding the microchip won't do anything, we need to transmit the digital OCR transmitter!",
+      'Переопределение микрочипа ничего не даст, нам нужно передать цифровой передатчик OCR!',
     status: 'in progress',
     label: 'documentation',
     priority: 'low',
@@ -173,7 +173,7 @@ export const tasks = [
   {
     id: 'TASK-7068',
     title:
-      "You can't generate the capacitor without indexing the wireless HEX pixel!",
+      'Невозможно сгенерировать конденсатор без индексации беспроводного пикселя HEX!',
     status: 'canceled',
     label: 'bug',
     priority: 'low',
@@ -181,14 +181,14 @@ export const tasks = [
   {
     id: 'TASK-6502',
     title:
-      "Navigating the microchip won't do anything, we need to bypass the back-end SQL bus!",
+      'Навигация по микрочипу ничего не даст, нам нужно обойти шину SQL на стороне бэкенда!',
     status: 'todo',
     label: 'bug',
     priority: 'high',
   },
   {
     id: 'TASK-5326',
-    title: 'We need to hack the redundant UTF8 transmitter!',
+    title: 'Нам нужно взломать избыточный передатчик UTF8!',
     status: 'todo',
     label: 'bug',
     priority: 'low',
@@ -196,7 +196,7 @@ export const tasks = [
   {
     id: 'TASK-6274',
     title:
-      'Use the virtual PCI circuit, then you can parse the bluetooth alarm!',
+      'Используйте виртуальную схему PCI, тогда вы сможете проанализировать сигнал тревоги bluetooth!',
     status: 'canceled',
     label: 'documentation',
     priority: 'low',
@@ -204,7 +204,7 @@ export const tasks = [
   {
     id: 'TASK-1571',
     title:
-      "I'll input the neural DRAM circuit, that should protocol the SMTP interface!",
+      'Я введу нейронную схему DRAM, это должно протоколировать интерфейс SMTP!',
     status: 'in progress',
     label: 'feature',
     priority: 'medium',
@@ -212,7 +212,7 @@ export const tasks = [
   {
     id: 'TASK-9518',
     title:
-      "Compressing the interface won't do anything, we need to compress the online SDD matrix!",
+      'Сжатие интерфейса ничего не даст, нам нужно сжать онлайн-матрицу SDD!',
     status: 'canceled',
     label: 'documentation',
     priority: 'medium',
@@ -220,7 +220,7 @@ export const tasks = [
   {
     id: 'TASK-5581',
     title:
-      "I'll synthesize the digital COM pixel, that should transmitter the UTF8 protocol!",
+      'Я синтезирую цифровой пиксель COM, это должно передать протокол UTF8!',
     status: 'backlog',
     label: 'documentation',
     priority: 'high',
@@ -228,14 +228,14 @@ export const tasks = [
   {
     id: 'TASK-2197',
     title:
-      "Parsing the feed won't do anything, we need to copy the bluetooth DRAM bus!",
+      'Анализ ленты ничего не даст, нам нужно скопировать шину DRAM bluetooth!',
     status: 'todo',
     label: 'documentation',
     priority: 'low',
   },
   {
     id: 'TASK-8484',
-    title: 'We need to parse the solid state UDP firewall!',
+    title: 'Нам нужно проанализировать твердотельный брандмауэр UDP!',
     status: 'in progress',
     label: 'bug',
     priority: 'low',
@@ -243,14 +243,14 @@ export const tasks = [
   {
     id: 'TASK-9892',
     title:
-      'If we back up the application, we can get to the UDP application through the multi-byte THX capacitor!',
+      'Если мы сделаем резервную копию приложения, мы сможем добраться до приложения UDP через многобайтовый конденсатор THX!',
     status: 'done',
     label: 'documentation',
     priority: 'high',
   },
   {
     id: 'TASK-9616',
-    title: 'We need to synthesize the cross-platform ASCII pixel!',
+    title: 'Нам нужно синтезировать кроссплатформенный пиксель ASCII!',
     status: 'in progress',
     label: 'feature',
     priority: 'medium',
@@ -258,7 +258,7 @@ export const tasks = [
   {
     id: 'TASK-9744',
     title:
-      'Use the back-end IP card, then you can input the solid state hard drive!',
+      'Используйте IP-карту на стороне бэкенда, тогда вы сможете ввести твердотельный жесткий диск!',
     status: 'done',
     label: 'documentation',
     priority: 'low',
@@ -266,7 +266,7 @@ export const tasks = [
   {
     id: 'TASK-1376',
     title:
-      "Generating the alarm won't do anything, we need to generate the mobile IP capacitor!",
+      'Генерация сигнала тревоги ничего не даст, нам нужно сгенерировать мобильный IP-конденсатор!',
     status: 'backlog',
     label: 'documentation',
     priority: 'low',
@@ -274,7 +274,7 @@ export const tasks = [
   {
     id: 'TASK-7382',
     title:
-      'If we back up the firewall, we can get to the RAM alarm through the primary UTF8 pixel!',
+      'Если мы сделаем резервную копию брандмауэра, мы сможем добраться до сигнала тревоги RAM через основной пиксель UTF8!',
     status: 'todo',
     label: 'feature',
     priority: 'low',
@@ -282,7 +282,7 @@ export const tasks = [
   {
     id: 'TASK-2290',
     title:
-      "I'll compress the virtual JSON panel, that should application the UTF8 bus!",
+      'Я сожму виртуальную панель JSON, это должно приложить шину UTF8!',
     status: 'canceled',
     label: 'documentation',
     priority: 'high',
@@ -290,7 +290,7 @@ export const tasks = [
   {
     id: 'TASK-1533',
     title:
-      "You can't input the firewall without overriding the wireless TCP firewall!",
+      'Невозможно ввести брандмауэр без переопределения беспроводного брандмауэра TCP!',
     status: 'done',
     label: 'bug',
     priority: 'high',
@@ -298,7 +298,7 @@ export const tasks = [
   {
     id: 'TASK-4920',
     title:
-      "Bypassing the hard drive won't do anything, we need to input the bluetooth JSON program!",
+      'Обход жесткого диска ничего не даст, нам нужно ввести программу JSON bluetooth!',
     status: 'in progress',
     label: 'bug',
     priority: 'high',
@@ -306,14 +306,14 @@ export const tasks = [
   {
     id: 'TASK-5168',
     title:
-      'If we synthesize the bus, we can get to the IP panel through the virtual TLS array!',
+      'Если мы синтезируем шину, мы сможем добраться до IP-панели через виртуальный массив TLS!',
     status: 'in progress',
     label: 'feature',
     priority: 'low',
   },
   {
     id: 'TASK-7103',
-    title: 'We need to parse the multi-byte EXE bandwidth!',
+    title: 'Нам нужно проанализировать многобайтовую пропускную способность EXE!',
     status: 'canceled',
     label: 'feature',
     priority: 'low',
@@ -321,7 +321,7 @@ export const tasks = [
   {
     id: 'TASK-4314',
     title:
-      'If we compress the program, we can get to the XML alarm through the multi-byte COM matrix!',
+      'Если мы сожмем программу, мы сможем добраться до сигнала тревоги XML через многобайтовую матрицу COM!',
     status: 'in progress',
     label: 'bug',
     priority: 'high',
@@ -329,7 +329,7 @@ export const tasks = [
   {
     id: 'TASK-3415',
     title:
-      'Use the cross-platform XML application, then you can quantify the solid state feed!',
+      'Используйте кроссплатформенное приложение XML, тогда вы сможете квантифицировать твердотельную ленту!',
     status: 'todo',
     label: 'feature',
     priority: 'high',
@@ -337,7 +337,7 @@ export const tasks = [
   {
     id: 'TASK-8339',
     title:
-      'Try to calculate the DNS interface, maybe it will input the bluetooth capacitor!',
+      'Попробуйте рассчитать интерфейс DNS, возможно, это введет конденсатор bluetooth!',
     status: 'in progress',
     label: 'feature',
     priority: 'low',
@@ -345,7 +345,7 @@ export const tasks = [
   {
     id: 'TASK-6995',
     title:
-      'Try to hack the XSS bandwidth, maybe it will override the bluetooth matrix!',
+      'Попробуйте взломать пропускную способность XSS, возможно, это переопределит матрицу bluetooth!',
     status: 'todo',
     label: 'feature',
     priority: 'high',
@@ -353,7 +353,7 @@ export const tasks = [
   {
     id: 'TASK-8053',
     title:
-      'If we connect the program, we can get to the UTF8 matrix through the digital UDP protocol!',
+      'Если мы подключим программу, мы сможем добраться до матрицы UTF8 через цифровой протокол UDP!',
     status: 'todo',
     label: 'feature',
     priority: 'medium',
@@ -361,7 +361,7 @@ export const tasks = [
   {
     id: 'TASK-4336',
     title:
-      'If we synthesize the microchip, we can get to the SAS sensor through the optical UDP program!',
+      'Если мы синтезируем микрочип, мы сможем добраться до датчика SAS через оптическую программу UDP!',
     status: 'todo',
     label: 'documentation',
     priority: 'low',
@@ -369,7 +369,7 @@ export const tasks = [
   {
     id: 'TASK-8790',
     title:
-      "I'll back up the optical COM alarm, that should alarm the RSS capacitor!",
+      'Я сделаю резервную копию оптического сигнала тревоги COM, это должно вызвать тревогу конденсатора RSS!',
     status: 'done',
     label: 'bug',
     priority: 'medium',
@@ -377,14 +377,14 @@ export const tasks = [
   {
     id: 'TASK-8980',
     title:
-      'Try to navigate the SQL transmitter, maybe it will back up the virtual firewall!',
+      'Попробуйте навигировать по передатчику SQL, возможно, это сделает резервную копию виртуального брандмауэра!',
     status: 'canceled',
     label: 'bug',
     priority: 'low',
   },
   {
     id: 'TASK-7342',
-    title: 'Use the neural CLI card, then you can parse the online port!',
+    title: 'Используйте нейронную карту CLI, тогда вы сможете проанализировать онлайн-порт!',
     status: 'backlog',
     label: 'documentation',
     priority: 'low',
@@ -392,7 +392,7 @@ export const tasks = [
   {
     id: 'TASK-5608',
     title:
-      "I'll hack the haptic SSL program, that should bus the UDP transmitter!",
+      'Я взломаю тактильную программу SSL, это должно шинировать передатчик UDP!',
     status: 'canceled',
     label: 'documentation',
     priority: 'low',
@@ -400,7 +400,7 @@ export const tasks = [
   {
     id: 'TASK-1606',
     title:
-      "I'll generate the bluetooth PNG firewall, that should pixel the SSL driver!",
+      'Я сгенерирую брандмауэр PNG bluetooth, это должно пикселизировать драйвер SSL!',
     status: 'done',
     label: 'feature',
     priority: 'medium',
@@ -408,7 +408,7 @@ export const tasks = [
   {
     id: 'TASK-7872',
     title:
-      "Transmitting the circuit won't do anything, we need to reboot the 1080p RSS monitor!",
+      'Передача схемы ничего не даст, нам нужно перезагрузить монитор RSS 1080p!',
     status: 'canceled',
     label: 'feature',
     priority: 'medium',
@@ -416,7 +416,7 @@ export const tasks = [
   {
     id: 'TASK-4167',
     title:
-      'Use the cross-platform SMS circuit, then you can synthesize the optical feed!',
+      'Используйте кроссплатформенную схему SMS, тогда вы сможете синтезировать оптическую ленту!',
     status: 'canceled',
     label: 'bug',
     priority: 'medium',
@@ -424,14 +424,14 @@ export const tasks = [
   {
     id: 'TASK-9581',
     title:
-      "You can't index the port without hacking the cross-platform XSS monitor!",
+      'Невозможно проиндексировать порт без взлома кроссплатформенного монитора XSS!',
     status: 'backlog',
     label: 'documentation',
     priority: 'low',
   },
   {
     id: 'TASK-8806',
-    title: 'We need to bypass the back-end SSL panel!',
+    title: 'Нам нужно обойти панель SSL на стороне бэкенда!',
     status: 'done',
     label: 'bug',
     priority: 'medium',
@@ -439,7 +439,7 @@ export const tasks = [
   {
     id: 'TASK-6542',
     title:
-      'Try to quantify the RSS firewall, maybe it will quantify the open-source system!',
+      'Попробуйте квантифицировать брандмауэр RSS, возможно, это квантифицирует систему с открытым исходным кодом!',
     status: 'done',
     label: 'feature',
     priority: 'low',
@@ -447,14 +447,14 @@ export const tasks = [
   {
     id: 'TASK-6806',
     title:
-      'The VGA protocol is down, reboot the back-end matrix so we can parse the CSS panel!',
+      'Протокол VGA не работает, перезагрузите матрицу на стороне бэкенда, чтобы мы могли проанализировать панель CSS!',
     status: 'canceled',
     label: 'documentation',
     priority: 'low',
   },
   {
     id: 'TASK-9549',
-    title: "You can't bypass the bus without connecting the neural JBOD bus!",
+    title: 'Невозможно обойти шину без подключения нейронной шины JBOD!',
     status: 'todo',
     label: 'feature',
     priority: 'high',
@@ -462,7 +462,7 @@ export const tasks = [
   {
     id: 'TASK-1075',
     title:
-      "Backing up the driver won't do anything, we need to parse the redundant RAM pixel!",
+      'Резервное копирование драйвера ничего не даст, нам нужно проанализировать избыточный пиксель RAM!',
     status: 'done',
     label: 'feature',
     priority: 'medium',
@@ -470,7 +470,7 @@ export const tasks = [
   {
     id: 'TASK-1427',
     title:
-      'Use the auxiliary PCI circuit, then you can calculate the cross-platform interface!',
+      'Используйте вспомогательную схему PCI, тогда вы сможете рассчитать кроссплатформенный интерфейс!',
     status: 'done',
     label: 'documentation',
     priority: 'high',
@@ -478,7 +478,7 @@ export const tasks = [
   {
     id: 'TASK-1907',
     title:
-      "Hacking the circuit won't do anything, we need to back up the online DRAM system!",
+      'Взлом схемы ничего не даст, нам нужно сделать резервную копию онлайн-системы DRAM!',
     status: 'todo',
     label: 'documentation',
     priority: 'high',
@@ -486,7 +486,7 @@ export const tasks = [
   {
     id: 'TASK-4309',
     title:
-      'If we generate the system, we can get to the TCP sensor through the optical GB pixel!',
+      'Если мы сгенерируем систему, мы сможем добраться до датчика TCP через оптический пиксель GB!',
     status: 'backlog',
     label: 'bug',
     priority: 'medium',
@@ -494,7 +494,7 @@ export const tasks = [
   {
     id: 'TASK-3973',
     title:
-      "I'll parse the back-end ADP array, that should bandwidth the RSS bandwidth!",
+      'Я проанализирую массив ADP на стороне бэкенда, это должно обеспечить пропускную способность RSS!',
     status: 'todo',
     label: 'feature',
     priority: 'medium',
@@ -502,7 +502,7 @@ export const tasks = [
   {
     id: 'TASK-7962',
     title:
-      'Use the wireless RAM program, then you can hack the cross-platform feed!',
+      'Используйте беспроводную программу RAM, тогда вы сможете взломать кроссплатформенную ленту!',
     status: 'canceled',
     label: 'bug',
     priority: 'low',
@@ -510,7 +510,7 @@ export const tasks = [
   {
     id: 'TASK-3360',
     title:
-      "You can't quantify the program without synthesizing the neural OCR interface!",
+      'Невозможно квантифицировать программу без синтеза нейронного интерфейса OCR!',
     status: 'done',
     label: 'feature',
     priority: 'medium',
@@ -518,7 +518,7 @@ export const tasks = [
   {
     id: 'TASK-9887',
     title:
-      'Use the auxiliary ASCII sensor, then you can connect the solid state port!',
+      'Используйте вспомогательный датчик ASCII, тогда вы сможете подключить твердотельный порт!',
     status: 'backlog',
     label: 'bug',
     priority: 'medium',
@@ -526,7 +526,7 @@ export const tasks = [
   {
     id: 'TASK-3649',
     title:
-      "I'll input the virtual USB system, that should circuit the DNS monitor!",
+      'Я введу виртуальную систему USB, это должно замкнуть монитор DNS!',
     status: 'in progress',
     label: 'feature',
     priority: 'medium',
@@ -534,7 +534,7 @@ export const tasks = [
   {
     id: 'TASK-3586',
     title:
-      'If we quantify the circuit, we can get to the CLI feed through the mobile SMS hard drive!',
+      'Если мы квантифицируем схему, мы сможем добраться до ленты CLI через мобильный жесткий диск SMS!',
     status: 'in progress',
     label: 'bug',
     priority: 'low',
@@ -542,7 +542,7 @@ export const tasks = [
   {
     id: 'TASK-5150',
     title:
-      "I'll hack the wireless XSS port, that should transmitter the IP interface!",
+      'Я взломаю беспроводной порт XSS, это должно передать IP-интерфейс!',
     status: 'canceled',
     label: 'feature',
     priority: 'medium',
@@ -550,7 +550,7 @@ export const tasks = [
   {
     id: 'TASK-3652',
     title:
-      'The SQL interface is down, override the optical bus so we can program the ASCII interface!',
+      'Интерфейс SQL не работает, переопределите оптическую шину, чтобы мы могли запрограммировать интерфейс ASCII!',
     status: 'backlog',
     label: 'feature',
     priority: 'low',
@@ -558,14 +558,14 @@ export const tasks = [
   {
     id: 'TASK-6884',
     title:
-      'Use the digital PCI circuit, then you can synthesize the multi-byte microchip!',
+      'Используйте цифровую систему PCI, тогда вы сможете синтезировать многобайтовый микрочип!',
     status: 'canceled',
     label: 'feature',
     priority: 'high',
   },
   {
     id: 'TASK-1591',
-    title: 'We need to connect the mobile XSS driver!',
+    title: 'Нам нужно подключить мобильный драйвер XSS!',
     status: 'in progress',
     label: 'feature',
     priority: 'high',
@@ -573,7 +573,7 @@ export const tasks = [
   {
     id: 'TASK-3802',
     title:
-      'Try to override the ASCII protocol, maybe it will parse the virtual matrix!',
+      'Попробуйте переопределить протокол ASCII, возможно, это проанализирует виртуальную матрицу!',
     status: 'in progress',
     label: 'feature',
     priority: 'low',
@@ -581,14 +581,14 @@ export const tasks = [
   {
     id: 'TASK-7253',
     title:
-      "Programming the capacitor won't do anything, we need to bypass the neural IB hard drive!",
+      'Программирование конденсатора ничего не даст, нам нужно обойти нейронный жесткий диск IB!',
     status: 'backlog',
     label: 'bug',
     priority: 'high',
   },
   {
     id: 'TASK-9739',
-    title: 'We need to hack the multi-byte HDD bus!',
+    title: 'Нам нужно взломать многобайтовую шину HDD!',
     status: 'done',
     label: 'documentation',
     priority: 'medium',
@@ -596,7 +596,7 @@ export const tasks = [
   {
     id: 'TASK-4424',
     title:
-      'Try to hack the HEX alarm, maybe it will connect the optical pixel!',
+      'Попробуйте взломать сигнал тревоги HEX, возможно, это подключит оптический пиксель!',
     status: 'in progress',
     label: 'documentation',
     priority: 'medium',
@@ -604,7 +604,7 @@ export const tasks = [
   {
     id: 'TASK-3922',
     title:
-      "You can't back up the capacitor without generating the wireless PCI program!",
+      'Невозможно сделать резервную копию конденсатора без генерации беспроводной программы PCI!',
     status: 'backlog',
     label: 'bug',
     priority: 'low',
@@ -612,14 +612,14 @@ export const tasks = [
   {
     id: 'TASK-4921',
     title:
-      "I'll index the open-source IP feed, that should system the GB application!",
+      'Я проиндексирую IP-ленту с открытым исходным кодом, это должно систематизировать приложение GB!',
     status: 'canceled',
     label: 'bug',
     priority: 'low',
   },
   {
     id: 'TASK-5814',
-    title: 'We need to calculate the 1080p AGP feed!',
+    title: 'Нам нужно рассчитать ленту AGP 1080p!',
     status: 'backlog',
     label: 'bug',
     priority: 'high',
@@ -627,7 +627,7 @@ export const tasks = [
   {
     id: 'TASK-2645',
     title:
-      "Synthesizing the system won't do anything, we need to navigate the multi-byte HDD firewall!",
+      'Синтез системы ничего не даст, нам нужно навигировать по многобайтовому брандмауэру HDD!',
     status: 'todo',
     label: 'documentation',
     priority: 'medium',
@@ -635,14 +635,14 @@ export const tasks = [
   {
     id: 'TASK-4535',
     title:
-      'Try to copy the JSON circuit, maybe it will connect the wireless feed!',
+      'Попробуйте скопировать схему JSON, возможно, это подключит беспроводную ленту!',
     status: 'in progress',
     label: 'feature',
     priority: 'low',
   },
   {
     id: 'TASK-4463',
-    title: 'We need to copy the solid state AGP monitor!',
+    title: 'Нам нужно скопировать твердотельный монитор AGP!',
     status: 'done',
     label: 'documentation',
     priority: 'low',
@@ -650,7 +650,7 @@ export const tasks = [
   {
     id: 'TASK-9745',
     title:
-      'If we connect the protocol, we can get to the GB system through the bluetooth PCI microchip!',
+      'Если мы подключим протокол, мы сможем добраться до системы GB через микрочип PCI bluetooth!',
     status: 'canceled',
     label: 'feature',
     priority: 'high',
@@ -658,7 +658,7 @@ export const tasks = [
   {
     id: 'TASK-2080',
     title:
-      'If we input the bus, we can get to the RAM matrix through the auxiliary RAM card!',
+      'Если мы введем шину, мы сможем добраться до матрицы RAM через вспомогательную карту RAM!',
     status: 'todo',
     label: 'bug',
     priority: 'medium',
@@ -666,14 +666,14 @@ export const tasks = [
   {
     id: 'TASK-3838',
     title:
-      "I'll bypass the online TCP application, that should panel the AGP system!",
+      'Я обойду онлайн-приложение TCP, это должно панелить систему AGP!',
     status: 'backlog',
     label: 'bug',
     priority: 'high',
   },
   {
     id: 'TASK-1340',
-    title: 'We need to navigate the virtual PNG circuit!',
+    title: 'Нам нужно навигировать по виртуальной схеме PNG!',
     status: 'todo',
     label: 'bug',
     priority: 'medium',
@@ -681,7 +681,7 @@ export const tasks = [
   {
     id: 'TASK-6665',
     title:
-      'If we parse the monitor, we can get to the SSD hard drive through the cross-platform AGP alarm!',
+      'Если мы проанализируем монитор, мы сможем добраться до жесткого диска SSD через кроссплатформенный сигнал тревоги AGP!',
     status: 'canceled',
     label: 'feature',
     priority: 'low',
@@ -689,28 +689,28 @@ export const tasks = [
   {
     id: 'TASK-7585',
     title:
-      'If we calculate the hard drive, we can get to the SSL program through the multi-byte CSS microchip!',
+      'Если мы рассчитаем жесткий диск, мы сможем добраться до программы SSL через многобайтовый микрочип CSS!',
     status: 'backlog',
     label: 'feature',
     priority: 'low',
   },
   {
     id: 'TASK-6319',
-    title: 'We need to copy the multi-byte SCSI program!',
+    title: 'Нам нужно скопировать многобайтовую программу SCSI!',
     status: 'backlog',
     label: 'bug',
     priority: 'high',
   },
   {
     id: 'TASK-4369',
-    title: 'Try to input the SCSI bus, maybe it will generate the 1080p pixel!',
+    title: 'Попробуйте ввести шину SCSI, возможно, это сгенерирует пиксель 1080p!',
     status: 'backlog',
     label: 'bug',
     priority: 'high',
   },
   {
     id: 'TASK-9035',
-    title: 'We need to override the solid state PNG array!',
+    title: 'Нам нужно переопределить твердотельный массив PNG!',
     status: 'canceled',
     label: 'documentation',
     priority: 'low',
@@ -718,7 +718,7 @@ export const tasks = [
   {
     id: 'TASK-3970',
     title:
-      "You can't index the transmitter without quantifying the haptic ASCII card!",
+      'Невозможно проиндексировать передатчик без квантификации тактильной карты ASCII!',
     status: 'todo',
     label: 'documentation',
     priority: 'medium',
@@ -726,7 +726,7 @@ export const tasks = [
   {
     id: 'TASK-4473',
     title:
-      "You can't bypass the protocol without overriding the neural RSS program!",
+      'Невозможно обойти протокол без переопределения нейронной программы RSS!',
     status: 'todo',
     label: 'documentation',
     priority: 'low',
@@ -734,7 +734,7 @@ export const tasks = [
   {
     id: 'TASK-4136',
     title:
-      "You can't hack the hard drive without hacking the primary JSON program!",
+      'Невозможно взломать жесткий диск без взлома основной программы JSON!',
     status: 'canceled',
     label: 'bug',
     priority: 'medium',
@@ -742,7 +742,7 @@ export const tasks = [
   {
     id: 'TASK-3939',
     title:
-      'Use the back-end SQL firewall, then you can connect the neural hard drive!',
+      'Используйте брандмауэр SQL на стороне бэкенда, тогда вы сможете подключить нейронный жесткий диск!',
     status: 'done',
     label: 'feature',
     priority: 'low',
@@ -750,7 +750,7 @@ export const tasks = [
   {
     id: 'TASK-2007',
     title:
-      "I'll input the back-end USB protocol, that should bandwidth the PCI system!",
+      'Я введу протокол USB на стороне бэкенда, это должно обеспечить пропускную способность системы PCI!',
     status: 'backlog',
     label: 'bug',
     priority: 'high',
@@ -758,7 +758,7 @@ export const tasks = [
   {
     id: 'TASK-7516',
     title:
-      'Use the primary SQL program, then you can generate the auxiliary transmitter!',
+      'Используйте основную программу SQL, тогда вы сможете сгенерировать вспомогательный передатчик!',
     status: 'done',
     label: 'documentation',
     priority: 'medium',
@@ -766,7 +766,7 @@ export const tasks = [
   {
     id: 'TASK-6906',
     title:
-      'Try to back up the DRAM system, maybe it will reboot the online transmitter!',
+      'Попробуйте сделать резервную копию системы DRAM, возможно, это перезагрузит онлайн-передатчик!',
     status: 'done',
     label: 'feature',
     priority: 'high',
@@ -774,7 +774,7 @@ export const tasks = [
   {
     id: 'TASK-5207',
     title:
-      'The SMS interface is down, copy the bluetooth bus so we can quantify the VGA card!',
+      'Интерфейс SMS не работает, скопируйте шину bluetooth, чтобы мы могли квантифицировать карту VGA!',
     status: 'in progress',
     label: 'bug',
     priority: 'low',

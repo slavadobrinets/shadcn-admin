@@ -8,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { useTranslation } from 'react-i18next'
 
 interface TopNavProps extends React.HTMLAttributes<HTMLElement> {
   links: {
@@ -19,6 +20,8 @@ interface TopNavProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 export function TopNav({ className, links, ...props }: TopNavProps) {
+  const { t } = useTranslation('common')
+  
   return (
     <>
       <div className='md:hidden'>
@@ -36,7 +39,7 @@ export function TopNav({ className, links, ...props }: TopNavProps) {
                   className={!isActive ? 'text-muted-foreground' : ''}
                   disabled={disabled}
                 >
-                  {title}
+                  {t(title)}
                 </Link>
               </DropdownMenuItem>
             ))}
@@ -58,7 +61,7 @@ export function TopNav({ className, links, ...props }: TopNavProps) {
             disabled={disabled}
             className={`hover:text-primary text-sm font-medium transition-colors ${isActive ? '' : 'text-muted-foreground'}`}
           >
-            {title}
+            {t(title)}
           </Link>
         ))}
       </nav>

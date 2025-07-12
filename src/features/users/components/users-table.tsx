@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -39,6 +40,7 @@ interface DataTableProps {
 }
 
 export function UsersTable({ columns, data }: DataTableProps) {
+  const { t } = useTranslation('common')
   const [rowSelection, setRowSelection] = useState({})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
@@ -120,7 +122,7 @@ export function UsersTable({ columns, data }: DataTableProps) {
                   colSpan={columns.length}
                   className='h-24 text-center'
                 >
-                  No results.
+                  {t('tasks.no_results')}
                 </TableCell>
               </TableRow>
             )}

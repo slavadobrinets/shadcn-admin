@@ -29,16 +29,16 @@ import { User } from '../data/schema'
 
 const formSchema = z
   .object({
-    firstName: z.string().min(1, { message: 'First Name is required.' }),
-    lastName: z.string().min(1, { message: 'Last Name is required.' }),
-    username: z.string().min(1, { message: 'Username is required.' }),
-    phoneNumber: z.string().min(1, { message: 'Phone number is required.' }),
+    firstName: z.string().min(1, { message: 'Имя обязательно.' }),
+    lastName: z.string().min(1, { message: 'Фамилия обязательна.' }),
+    username: z.string().min(1, { message: 'Имя пользователя обязательно.' }),
+    phoneNumber: z.string().min(1, { message: 'Номер телефона обязателен.' }),
     email: z
       .string()
-      .min(1, { message: 'Email is required.' })
-      .email({ message: 'Email is invalid.' }),
+      .min(1, { message: 'Электронная почта обязательна.' })
+      .email({ message: 'Электронная почта недействительна.' }),
     password: z.string().transform((pwd) => pwd.trim()),
-    role: z.string().min(1, { message: 'Role is required.' }),
+    role: z.string().min(1, { message: 'Роль обязательна.' }),
     confirmPassword: z.string().transform((pwd) => pwd.trim()),
     isEdit: z.boolean(),
   })
@@ -47,7 +47,7 @@ const formSchema = z
       if (password === '') {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: 'Password is required.',
+          message: 'Пароль обязателен.',
           path: ['password'],
         })
       }
@@ -55,7 +55,7 @@ const formSchema = z
       if (password.length < 8) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: 'Password must be at least 8 characters long.',
+          message: 'Пароль должен содержать не менее 8 символов.',
           path: ['password'],
         })
       }
@@ -63,7 +63,7 @@ const formSchema = z
       if (!password.match(/[a-z]/)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: 'Password must contain at least one lowercase letter.',
+          message: 'Пароль должен содержать хотя бы одну строчную букву.',
           path: ['password'],
         })
       }
@@ -71,7 +71,7 @@ const formSchema = z
       if (!password.match(/\d/)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: 'Password must contain at least one number.',
+          message: 'Пароль должен содержать хотя бы одну цифру.',
           path: ['password'],
         })
       }
@@ -79,7 +79,7 @@ const formSchema = z
       if (password !== confirmPassword) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: "Passwords don't match.",
+          message: "Пароли не совпадают.",
           path: ['confirmPassword'],
         })
       }
@@ -135,10 +135,10 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
     >
       <DialogContent className='sm:max-w-lg'>
         <DialogHeader className='text-left'>
-          <DialogTitle>{isEdit ? 'Edit User' : 'Add New User'}</DialogTitle>
+          <DialogTitle>{isEdit ? 'Редактировать пользователя' : 'Добавить нового пользователя'}</DialogTitle>
           <DialogDescription>
-            {isEdit ? 'Update the user here. ' : 'Create new user here. '}
-            Click save when you&apos;re done.
+            {isEdit ? 'Обновите пользователя здесь. ' : 'Создайте нового пользователя здесь. '}
+            Нажмите сохранить, когда закончите.
           </DialogDescription>
         </DialogHeader>
         <div className='-mr-4 h-[26.25rem] w-full overflow-y-auto py-1 pr-4'>
@@ -154,11 +154,11 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                 render={({ field }) => (
                   <FormItem className='grid grid-cols-6 items-center space-y-0 gap-x-4 gap-y-1'>
                     <FormLabel className='col-span-2 text-right'>
-                      First Name
+                      Имя
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder='John'
+                        placeholder='Иван'
                         className='col-span-4'
                         autoComplete='off'
                         {...field}
@@ -174,11 +174,11 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                 render={({ field }) => (
                   <FormItem className='grid grid-cols-6 items-center space-y-0 gap-x-4 gap-y-1'>
                     <FormLabel className='col-span-2 text-right'>
-                      Last Name
+                      Фамилия
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder='Doe'
+                        placeholder='Иванов'
                         className='col-span-4'
                         autoComplete='off'
                         {...field}
@@ -194,11 +194,11 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                 render={({ field }) => (
                   <FormItem className='grid grid-cols-6 items-center space-y-0 gap-x-4 gap-y-1'>
                     <FormLabel className='col-span-2 text-right'>
-                      Username
+                      Имя пользователя
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder='john_doe'
+                        placeholder='ivan_ivanov'
                         className='col-span-4'
                         {...field}
                       />
@@ -213,11 +213,11 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                 render={({ field }) => (
                   <FormItem className='grid grid-cols-6 items-center space-y-0 gap-x-4 gap-y-1'>
                     <FormLabel className='col-span-2 text-right'>
-                      Email
+                      Электронная почта
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder='john.doe@gmail.com'
+                        placeholder='ivan.ivanov@example.com'
                         className='col-span-4'
                         {...field}
                       />
@@ -232,11 +232,11 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                 render={({ field }) => (
                   <FormItem className='grid grid-cols-6 items-center space-y-0 gap-x-4 gap-y-1'>
                     <FormLabel className='col-span-2 text-right'>
-                      Phone Number
+                      Номер телефона
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder='+123456789'
+                        placeholder='+79123456789'
                         className='col-span-4'
                         {...field}
                       />
@@ -251,12 +251,12 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                 render={({ field }) => (
                   <FormItem className='grid grid-cols-6 items-center space-y-0 gap-x-4 gap-y-1'>
                     <FormLabel className='col-span-2 text-right'>
-                      Role
+                      Роль
                     </FormLabel>
                     <SelectDropdown
                       defaultValue={field.value}
                       onValueChange={field.onChange}
-                      placeholder='Select a role'
+                      placeholder='Выберите роль'
                       className='col-span-4'
                       items={userTypes.map(({ label, value }) => ({
                         label,
@@ -273,11 +273,11 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                 render={({ field }) => (
                   <FormItem className='grid grid-cols-6 items-center space-y-0 gap-x-4 gap-y-1'>
                     <FormLabel className='col-span-2 text-right'>
-                      Password
+                      Пароль
                     </FormLabel>
                     <FormControl>
                       <PasswordInput
-                        placeholder='e.g., S3cur3P@ssw0rd'
+                        placeholder='например, S3cur3P@ssw0rd'
                         className='col-span-4'
                         {...field}
                       />
@@ -292,12 +292,12 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                 render={({ field }) => (
                   <FormItem className='grid grid-cols-6 items-center space-y-0 gap-x-4 gap-y-1'>
                     <FormLabel className='col-span-2 text-right'>
-                      Confirm Password
+                      Подтвердите пароль
                     </FormLabel>
                     <FormControl>
                       <PasswordInput
                         disabled={!isPasswordTouched}
-                        placeholder='e.g., S3cur3P@ssw0rd'
+                        placeholder='например, S3cur3P@ssw0rd'
                         className='col-span-4'
                         {...field}
                       />
@@ -311,7 +311,7 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
         </div>
         <DialogFooter>
           <Button type='submit' form='user-form'>
-            Save changes
+            Сохранить изменения
           </Button>
         </DialogFooter>
       </DialogContent>

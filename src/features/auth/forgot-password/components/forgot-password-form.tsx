@@ -2,6 +2,7 @@ import { HTMLAttributes, useState } from 'react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
@@ -16,15 +17,17 @@ import { Input } from '@/components/ui/input'
 
 type ForgotFormProps = HTMLAttributes<HTMLFormElement>
 
-const formSchema = z.object({
+const createFormSchema = (t: (key: string) => string) => z.object({
   email: z
     .string()
-    .min(1, { message: 'Please enter your email' })
-    .email({ message: 'Invalid email address' }),
+    .min(1, { message: t('auth.validation.email_required') })
+    .email({ message: t('auth.validation.email_invalid') }),
 })
 
 export function ForgotPasswordForm({ className, ...props }: ForgotFormProps) {
+  const { t } = useTranslation('common')
   const [isLoading, setIsLoading] = useState(false)
+  const formSchema = createFormSchema(t)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -53,16 +56,16 @@ export function ForgotPasswordForm({ className, ...props }: ForgotFormProps) {
           name='email'
           render={({ field }) => (
             <FormItem className='space-y-1'>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t('auth.forgot_password.email_label')}</FormLabel>
               <FormControl>
-                <Input placeholder='name@example.com' {...field} />
+                <Input placeholder={t('auth.forgot_password.email_placeholder')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button className='mt-2' disabled={isLoading}>
-          Continue
+          {t('auth.forgot_password.button')}
         </Button>
       </form>
     </Form>

@@ -3,12 +3,15 @@ import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 import { Checkbox } from '@/components/ui/checkbox'
 import LongText from '@/components/long-text'
-import { callTypes, userTypes } from '../data/data'
+import { callTypes, getStatuses, getUserTypes } from '../data/data'
 import { User } from '../data/schema'
 import { DataTableColumnHeader } from './data-table-column-header'
 import { DataTableRowActions } from './data-table-row-actions'
+import { TFunction } from 'i18next'
 
-export const columns: ColumnDef<User>[] = [
+// Создаем колонки с функцией перевода в качестве параметра
+export function createColumns(t: TFunction): ColumnDef<User>[] {
+  return [
   {
     id: 'select',
     header: ({ table }) => (
@@ -18,7 +21,7 @@ export const columns: ColumnDef<User>[] = [
           (table.getIsSomePageRowsSelected() && 'indeterminate')
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label='Select all'
+        aria-label={t('users.select_all')}
         className='translate-y-[2px]'
       />
     ),
@@ -32,7 +35,7 @@ export const columns: ColumnDef<User>[] = [
       <Checkbox
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label='Select row'
+        aria-label={t('users.select_row')}
         className='translate-y-[2px]'
       />
     ),
@@ -42,7 +45,7 @@ export const columns: ColumnDef<User>[] = [
   {
     accessorKey: 'username',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Username' />
+      <DataTableColumnHeader column={column} title={t('users.column.username')} />
     ),
     cell: ({ row }) => (
       <LongText className='max-w-36'>{row.getValue('username')}</LongText>
@@ -59,7 +62,7 @@ export const columns: ColumnDef<User>[] = [
   {
     id: 'fullName',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Name' />
+      <DataTableColumnHeader column={column} title={t('users.column.name')} />
     ),
     cell: ({ row }) => {
       const { firstName, lastName } = row.original
@@ -71,7 +74,7 @@ export const columns: ColumnDef<User>[] = [
   {
     accessorKey: 'email',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Email' />
+      <DataTableColumnHeader column={column} title={t('users.column.email')} />
     ),
     cell: ({ row }) => (
       <div className='w-fit text-nowrap'>{row.getValue('email')}</div>
@@ -80,7 +83,7 @@ export const columns: ColumnDef<User>[] = [
   {
     accessorKey: 'phoneNumber',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Phone Number' />
+      <DataTableColumnHeader column={column} title={t('users.column.phone')} />
     ),
     cell: ({ row }) => <div>{row.getValue('phoneNumber')}</div>,
     enableSorting: false,
@@ -88,15 +91,23 @@ export const columns: ColumnDef<User>[] = [
   {
     accessorKey: 'status',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Status' />
+      <DataTableColumnHeader column={column} title={t('users.column.status')} />
     ),
     cell: ({ row }) => {
-      const { status } = row.original
-      const badgeColor = callTypes.get(status)
+      const statuses = getStatuses(t)
+      const status = statuses.find(
+        (status) => status.value === row.getValue('status')
+      )
+
+      if (!status) {
+        return null
+      }
+
+      const badgeColor = callTypes.get(status.value)
       return (
         <div className='flex space-x-2'>
           <Badge variant='outline' className={cn('capitalize', badgeColor)}>
-            {row.getValue('status')}
+            {status.label}
           </Badge>
         </div>
       )
@@ -110,10 +121,11 @@ export const columns: ColumnDef<User>[] = [
   {
     accessorKey: 'role',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Role' />
+      <DataTableColumnHeader column={column} title={t('users.column.role')} />
     ),
     cell: ({ row }) => {
       const { role } = row.original
+      const userTypes = getUserTypes(t)
       const userType = userTypes.find(({ value }) => value === role)
 
       if (!userType) {
@@ -125,7 +137,7 @@ export const columns: ColumnDef<User>[] = [
           {userType.icon && (
             <userType.icon size={16} className='text-muted-foreground' />
           )}
-          <span className='text-sm capitalize'>{row.getValue('role')}</span>
+          <span className='text-sm capitalize'>{userType.label}</span>
         </div>
       )
     },
@@ -139,4 +151,5 @@ export const columns: ColumnDef<User>[] = [
     id: 'actions',
     cell: DataTableRowActions,
   },
-]
+  ]
+}

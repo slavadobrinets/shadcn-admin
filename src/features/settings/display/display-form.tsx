@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslation } from 'react-i18next'
 import { showSubmittedData } from '@/utils/show-submitted-data'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -14,40 +15,49 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 
-const items = [
+const getItems = (t: (key: string) => string) => [
   {
     id: 'recents',
-    label: 'Recents',
+    label: t('settings.display.recents'),
   },
   {
     id: 'home',
-    label: 'Home',
+    label: t('settings.display.home'),
   },
   {
     id: 'applications',
-    label: 'Applications',
+    label: t('settings.display.applications'),
   },
   {
     id: 'desktop',
-    label: 'Desktop',
+    label: t('settings.display.desktop'),
   },
   {
     id: 'downloads',
-    label: 'Downloads',
+    label: t('settings.display.downloads'),
   },
   {
     id: 'documents',
-    label: 'Documents',
+    label: t('settings.display.documents'),
   },
 ] as const
 
-const displayFormSchema = z.object({
+// Создаем базовую схему без сообщений об ошибках
+const baseDisplayFormSchema = z.object({
   items: z.array(z.string()).refine((value) => value.some((item) => item), {
-    message: 'You have to select at least one item.',
+    message: 'Required',
   }),
 })
 
-type DisplayFormValues = z.infer<typeof displayFormSchema>
+// Функция для создания схемы с переведенными сообщениями
+const displayFormSchema = (t: (key: string) => string) => z.object({
+  items: z.array(z.string()).refine((value) => value.some((item) => item), {
+    message: t('settings.display.items_required'),
+  }),
+})
+
+// Используем базовую схему для вывода типа
+type DisplayFormValues = z.infer<typeof baseDisplayFormSchema>
 
 // This can come from your database or API.
 const defaultValues: Partial<DisplayFormValues> = {
@@ -55,8 +65,11 @@ const defaultValues: Partial<DisplayFormValues> = {
 }
 
 export function DisplayForm() {
+  const { t } = useTranslation('common')
+  const items = getItems(t)
+  
   const form = useForm<DisplayFormValues>({
-    resolver: zodResolver(displayFormSchema),
+    resolver: zodResolver(displayFormSchema(t)),
     defaultValues,
   })
 
@@ -72,9 +85,9 @@ export function DisplayForm() {
           render={() => (
             <FormItem>
               <div className='mb-4'>
-                <FormLabel className='text-base'>Sidebar</FormLabel>
+                <FormLabel className='text-base'>{t('settings.display.sidebar')}</FormLabel>
                 <FormDescription>
-                  Select the items you want to display in the sidebar.
+                  {t('settings.display.sidebar_description')}
                 </FormDescription>
               </div>
               {items.map((item) => (
@@ -114,7 +127,7 @@ export function DisplayForm() {
             </FormItem>
           )}
         />
-        <Button type='submit'>Update display</Button>
+        <Button type='submit'>{t('settings.display.update_display')}</Button>
       </form>
     </Form>
   )

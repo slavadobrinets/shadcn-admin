@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker'
+import { fakerRU as faker } from '@faker-js/faker'
 
 export const users = Array.from({ length: 20 }, () => {
   const firstName = faker.person.firstName()
@@ -11,7 +11,7 @@ export const users = Array.from({ length: 20 }, () => {
       .username({ firstName, lastName })
       .toLocaleLowerCase(),
     email: faker.internet.email({ firstName }).toLocaleLowerCase(),
-    phoneNumber: faker.phone.number({ style: 'international' }),
+    phoneNumber: faker.phone.number(),
     status: faker.helpers.arrayElement([
       'active',
       'inactive',

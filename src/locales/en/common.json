@@ -1,0 +1,619 @@
+{
+  "app_name": "Shadcn Admin",
+  "language": "Language",
+  "theme": "Theme",
+  "font": "Font",
+  "light": "Light",
+  "dark": "Dark",
+  "update_settings": "Update Settings",
+  "select_interface_language": "Select the interface language.",
+  "select_font": "Set the font you want to use on the dashboard.",
+  "select_theme": "Select a theme for the dashboard.",
+  "please_select_theme": "Please select a theme.",
+  "please_select_language": "Please select a language.",
+  "please_select_font": "Please select a font.",
+  "select_language": "Select language",
+  "select_font_option": "Select font",
+  "system": "System",
+  
+  "search": {
+    "placeholder": "Enter a command or search...",
+    "empty": "No results found.",
+    "button": "Search"
+  },
+  
+  "profile_dropdown": {
+    "profile": "Profile",
+    "billing": "Billing",
+    "settings": "Settings",
+    "new_team": "New Team",
+    "logout": "Logout"
+  },
+  
+  "nav_user": {
+    "upgrade_to_pro": "Upgrade to Pro",
+    "account": "Account",
+    "billing": "Billing",
+    "notifications": "Notifications",
+    "logout": "Logout"
+  },
+  
+  "dashboard": {
+    "title": "Dashboard",
+    "download": "Download",
+    "tabs": {
+      "overview": "Overview",
+      "analytics": "Analytics",
+      "reports": "Reports",
+      "notifications": "Notifications"
+    },
+    "cards": {
+      "total_revenue": "Total Revenue",
+      "subscriptions": "Subscriptions",
+      "sales": "Sales",
+      "active_now": "Active Now"
+    },
+    "stats": {
+      "from_last_month": "+20.1% from last month",
+      "subscriptions_growth": "+180.1% from last month",
+      "sales_growth": "+19% from last month",
+      "active_growth": "+201 since last hour"
+    },
+    "overview": "Overview",
+    "recent_sales": {
+      "title": "Recent Sales",
+      "description": "You made 265 sales this month.",
+      "people": {
+        "olivia": {
+          "name": "Olivia Martin",
+          "email": "olivia.martin@email.com",
+          "initials": "OM"
+        },
+        "jackson": {
+          "name": "Jackson Lee",
+          "email": "jackson.lee@email.com",
+          "initials": "JL"
+        },
+        "isabella": {
+          "name": "Isabella Nguyen",
+          "email": "isabella.nguyen@email.com",
+          "initials": "IN"
+        },
+        "william": {
+          "name": "William Kim",
+          "email": "will@email.com",
+          "initials": "WK"
+        },
+        "sophia": {
+          "name": "Sophia Davis",
+          "email": "sofia.davis@email.com",
+          "initials": "SD"
+        }
+      }
+    },
+    "months": {
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    },
+    "top_nav": {
+      "overview": "Overview",
+      "customers": "Customers",
+      "products": "Products",
+      "settings": "Settings"
+    }
+  },
+  
+  "tasks": {
+    "title": "Tasks",
+    "subtitle": "Here's a list of your tasks for this month!",
+    "filter_placeholder": "Filter tasks...",
+    "reset_filters": "Reset",
+    "column": {
+      "task": "Task",
+      "title": "Title",
+      "status": "Status",
+      "priority": "Priority"
+    },
+    "label": {
+      "bug": "Bug",
+      "feature": "Feature",
+      "documentation": "Documentation"
+    },
+    "status": {
+      "backlog": "Backlog",
+      "todo": "To Do",
+      "in_progress": "In Progress",
+      "done": "Done",
+      "canceled": "Canceled"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "select_all": "Select all",
+    "select_row": "Select row",
+    "no_results": "No results.",
+    "buttons": {
+      "import": "Import",
+      "create": "Create"
+    },
+    "import": {
+      "title": "Import Tasks",
+      "description": "Quickly import tasks from a CSV file.",
+      "file_label": "File",
+      "close": "Close",
+      "import": "Import",
+      "validation": {
+        "file_required": "Please upload a file",
+        "file_format": "Please upload a CSV file."
+      },
+      "success_message": "You have imported the following file:"
+    },
+    "create_update": {
+      "create_title": "Create Task",
+      "update_title": "Update Task",
+      "create_description": "Add a new task by providing the necessary information.",
+      "update_description": "Update the task by providing the necessary information.",
+      "finish_description": "Click save when you're done.",
+      "title_label": "Title",
+      "title_placeholder": "Enter title",
+      "status_label": "Status",
+      "status_placeholder": "Select from dropdown",
+      "label_label": "Label",
+      "priority_label": "Priority",
+      "close": "Close",
+      "save": "Save changes",
+      "validation": {
+        "title_required": "Title is required.",
+        "status_required": "Please select a status.",
+        "label_required": "Please select a label.",
+        "priority_required": "Please select a priority."
+      }
+    },
+    "delete": {
+      "title": "Delete this task: {id} ?",
+      "description": "You are about to delete the task with ID {id}. This action cannot be undone.",
+      "confirm": "Delete",
+      "success_message": "The following task has been deleted:"
+    },
+    "table": {
+      "view": "View",
+      "toggle_columns": "Toggle columns",
+      "open_menu": "Open menu",
+      "edit": "Edit",
+      "make_copy": "Make a copy",
+      "favorite": "Favorite",
+      "labels": "Labels",
+      "delete": "Delete",
+      "sort": {
+        "asc": "Asc",
+        "desc": "Desc",
+        "hide": "Hide"
+      },
+      "filter": {
+        "selected": "{{count}} selected",
+        "no_results": "No results found.",
+        "clear_filters": "Clear filters"
+      },
+      "pagination": {
+        "rows_selected": "{{selected}} of {{total}} row(s) selected.",
+        "rows_per_page": "Rows per page",
+        "page": "Page {{current}} of {{total}}",
+        "go_to_first_page": "Go to first page",
+        "go_to_previous_page": "Go to previous page",
+        "go_to_next_page": "Go to next page",
+        "go_to_last_page": "Go to last page"
+      }
+    }
+  },
+  
+  "users": {
+    "title": "User List",
+    "subtitle": "Manage your users and their roles here.",
+    "select_all": "Select all",
+    "select_row": "Select row",
+    "filter_placeholder": "Filter users...",
+    "reset_filters": "Reset filters",
+    "no_results": "No results.",
+    "column": {
+      "username": "Username",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "status": "Status",
+      "role": "Role"
+    },
+    "role": {
+      "superadmin": "Superadmin",
+      "admin": "Admin",
+      "manager": "Manager",
+      "cashier": "Cashier"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "invited": "Invited",
+      "suspended": "Suspended"
+    },
+    "table": {
+      "view": "View",
+      "toggle_columns": "Toggle columns",
+      "rows_selected": "{{count}} of {{total}} row(s) selected.",
+      "rows_per_page": "Rows per page",
+      "page": "Page {{current}} of {{total}}",
+      "go_to_first_page": "Go to first page",
+      "go_to_previous_page": "Go to previous page",
+      "go_to_next_page": "Go to next page",
+      "go_to_last_page": "Go to last page",
+      "open_menu": "Open menu",
+      "edit": "Edit",
+      "delete": "Delete",
+      "sort": {
+        "asc": "Asc",
+        "desc": "Desc",
+        "hide": "Hide"
+      },
+      "filter": {
+        "selected": "{{count}} selected",
+        "no_results": "No results found.",
+        "clear_filters": "Clear filters"
+      }
+    },
+    "dialog": {
+      "delete": {
+        "title": "Delete User",
+        "description": "Are you sure you want to delete {{username}}?",
+        "description_extended": "This action will permanently remove the user with role {{role}} from the system. This action cannot be undone.",
+        "username_label": "Username:",
+        "username_placeholder": "Enter username to confirm deletion.",
+        "warning_title": "Warning!",
+        "warning_description": "Be careful, this operation cannot be undone.",
+        "confirm_button": "Delete",
+        "user_deleted": "The following user has been deleted:"
+      },
+      "action": {
+        "add_title": "Add New User",
+        "edit_title": "Edit User",
+        "add_description": "Create a new user here. ",
+        "edit_description": "Update user here. ",
+        "save_button": "Save changes",
+        "finish_description": "Click save when you're done."
+      },
+      "invite": {
+        "title": "Invite User",
+        "description": "Invite a new user to join your team by sending them an email invitation. Assign a role to determine their level of access.",
+        "email_label": "Email",
+        "email_placeholder": "e.g. john.doe@example.com",
+        "role_label": "Role",
+        "role_placeholder": "Select a role",
+        "desc_label": "Description (optional)",
+        "desc_placeholder": "Add a personal note to your invitation (optional)",
+        "cancel_button": "Cancel",
+        "invite_button": "Invite"
+      }
+    },
+    "buttons": {
+      "invite_user": "Invite User",
+      "add_user": "Add User"
+    },
+    "validation": {
+      "first_name_required": "First name is required.",
+      "last_name_required": "Last name is required.",
+      "username_required": "Username is required.",
+      "phone_required": "Phone number is required.",
+      "email_required": "Email is required.",
+      "email_invalid": "Email is invalid.",
+      "password_required": "Password is required.",
+      "password_min_length": "Password must be at least 8 characters.",
+      "password_lowercase": "Password must contain at least one lowercase letter.",
+      "password_digit": "Password must contain at least one digit.",
+      "passwords_not_match": "Passwords do not match.",
+      "role_required": "Role is required."
+    }
+  },
+  
+  "apps": {
+    "title": "App Integrations",
+    "subtitle": "Here's a list of your apps for integration!",
+    "filter_placeholder": "Filter apps...",
+    "all_apps": "All apps",
+    "connected": "Connected",
+    "not_connected": "Not connected",
+    "connect": "Connect",
+    "connected_status": "Connected",
+    "sort": {
+      "ascending": "Ascending",
+      "descending": "Descending"
+    },
+    "descriptions": {
+      "telegram": "Connect to Telegram for real-time communication.",
+      "notion": "Easily sync Notion pages for seamless collaboration.",
+      "figma": "View and work on Figma designs in one place.",
+      "trello": "Sync Trello cards to streamline project management.",
+      "slack": "Integrate Slack for efficient team communication.",
+      "zoom": "Host Zoom meetings right from your dashboard.",
+      "stripe": "Easily manage Stripe transactions and payments.",
+      "gmail": "Access and manage Gmail messages effortlessly.",
+      "medium": "Explore and share Medium stories on your dashboard.",
+      "skype": "Connect with Skype contacts seamlessly.",
+      "docker": "Easily manage Docker containers on your dashboard.",
+      "github": "Streamline code management with GitHub integration.",
+      "gitlab": "Efficiently manage code projects with GitLab integration.",
+      "discord": "Connect to Discord for seamless team communication.",
+      "whatsapp": "Easily integrate WhatsApp for direct messaging."
+    }
+  },
+  
+  "chats": {
+    "title": "Inbox",
+    "search_placeholder": "Search in chat...",
+    "you_prefix": "You: ",
+    "input_label": "Chat text input field",
+    "input_placeholder": "Type your message...",
+    "send_button": "Send",
+    "empty_state": {
+      "title": "Your Messages",
+      "description": "Send a message to start a chat.",
+      "button": "Send Message"
+    },
+    "new_chat": {
+      "title": "New Message",
+      "to_label": "To:",
+      "search_people": "Search people...",
+      "nothing_found": "Nothing found.",
+      "chat_button": "Chat"
+    },
+    "job_titles": {
+      "senior_backend_developer": "Senior Backend Developer",
+      "technical_lead": "Technical Lead",
+      "qa_engineer": "QA Engineer",
+      "junior_developer": "Junior Developer",
+      "senior_ui_ux_designer": "Senior UI/UX Designer",
+      "product_designer": "Product Designer",
+      "ceo": "CEO",
+      "fullstack_developer": "Full-stack Developer",
+      "junior_frontend_developer": "Junior Frontend Developer"
+    }
+  },
+  
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account settings and set e-mail preferences.",
+    "profile": {
+      "title": "Profile",
+      "description": "This is how others will see you on the site.",
+      "username": "Username",
+      "username_description": "This is your public display name. It can be your real name or a pseudonym. You can only change this once every 30 days.",
+      "username_min": "Username must be at least 2 characters.",
+      "username_max": "Username must not be longer than 30 characters.",
+      "email": "Email",
+      "email_placeholder": "Select a verified email to display",
+      "email_description": "You can manage verified email addresses in your email settings.",
+      "bio": "Bio",
+      "bio_placeholder": "Tell us a little bit about yourself",
+      "bio_description": "You can @mention other users and organizations to link to them.",
+      "urls": "URLs",
+      "urls_description": "Add links to your website, blog, or social media profiles.",
+      "urls_invalid": "Please enter a valid URL.",
+      "add_url": "Add URL",
+      "update_profile": "Update profile"
+    },
+    "account": {
+      "title": "Account",
+      "description": "Update your account settings. Set your preferred language and timezone.",
+      "name": "Name",
+      "name_placeholder": "Your name",
+      "name_description": "This is the name that will be displayed on your profile and in emails.",
+      "name_min": "Name must be at least 2 characters.",
+      "name_max": "Name must not be longer than 30 characters.",
+      "dob": "Date of birth",
+      "dob_placeholder": "Select a date",
+      "dob_description": "Your date of birth is used to calculate your age.",
+      "dob_required": "Date of birth is required.",
+      "language": "Language",
+      "language_placeholder": "Select a language",
+      "language_description": "This is the language that will be used in the dashboard.",
+      "language_search": "Search language...",
+      "language_not_found": "Language not found.",
+      "language_required": "Please select a language.",
+      "update_account": "Update account",
+      "languages": {
+        "English": "English",
+        "French": "French",
+        "German": "German",
+        "Spanish": "Spanish",
+        "Portuguese": "Portuguese",
+        "Russian": "Russian",
+        "Japanese": "Japanese",
+        "Korean": "Korean",
+        "Chinese": "Chinese"
+      }
+    },
+    "appearance": {
+      "title": "Appearance",
+      "description": "Customize the appearance of the app. Automatically switch between day and night themes."
+    },
+    "notifications": {
+      "title": "Notifications",
+      "description": "Configure how you receive notifications.",
+      "notify_me": "Notify me about...",
+      "all_messages": "All new messages",
+      "direct_messages": "Direct messages and mentions",
+      "nothing": "Nothing",
+      "notification_type_required": "You need to select a notification type.",
+      "email_notifications": "Email Notifications",
+      "communication_emails": "Communication emails",
+      "communication_emails_description": "Receive emails about your account activity.",
+      "marketing_emails": "Marketing emails",
+      "marketing_emails_description": "Receive emails about new products, features, and more.",
+      "social_emails": "Social emails",
+      "social_emails_description": "Receive emails about friend requests, follows, and more.",
+      "security_emails": "Security emails",
+      "security_emails_description": "Receive emails about your account activity and security.",
+      "mobile_settings": "Use different settings for my mobile devices",
+      "mobile_settings_description": "You can manage your mobile notifications on the mobile settings page.",
+      "mobile_settings_link": "mobile settings",
+      "update_notifications": "Update notifications"
+    },
+    "display": {
+      "title": "Display",
+      "description": "Turn items on or off to control what's displayed in the app.",
+      "sidebar": "Sidebar",
+      "sidebar_description": "Select the items you want to display in the sidebar.",
+      "items_required": "You must select at least one item.",
+      "recents": "Recents",
+      "home": "Home",
+      "applications": "Applications",
+      "desktop": "Desktop",
+      "downloads": "Downloads",
+      "documents": "Documents",
+      "update_display": "Update display"
+    }
+  },
+  
+  "coming_soon": {
+    "title": "Coming Soon 👀",
+    "description": "This page is not created yet. Stay tuned for updates!"
+  },
+  
+  "sidebar": {
+    "groups": {
+      "main": "Main",
+      "pages": "Pages",
+      "other": "Other"
+    },
+    "items": {
+      "dashboard": "Dashboard",
+      "tasks": "Tasks",
+      "apps": "Apps",
+      "chats": "Chats",
+      "users": "Users",
+      "clerk_protected": "Protected by Clerk",
+      "sign_in": "Sign In",
+      "sign_up": "Sign Up",
+      "user_management": "User Management",
+      "authentication": "Authentication",
+      "sign_in_2_columns": "Sign In (2 columns)",
+      "forgot_password": "Forgot Password",
+      "otp": "OTP",
+      "errors": "Errors",
+      "unauthorized": "Unauthorized",
+      "forbidden": "Forbidden",
+      "not_found": "Not Found",
+      "server_error": "Server Error",
+      "maintenance_error": "Maintenance Error",
+      "settings": "Settings",
+      "profile": "Profile",
+      "account": "Account",
+      "appearance": "Appearance",
+      "notifications": "Notifications",
+      "display": "Display",
+      "help_center": "Help Center"
+    }
+  },
+  
+  "auth": {
+    "sign_in": {
+      "title": "Sign In",
+      "description": "Enter your email and password below to sign in to your account",
+      "email_label": "Email",
+      "email_placeholder": "name@example.com",
+      "password_label": "Password",
+      "password_placeholder": "********",
+      "forgot_password": "Forgot password?",
+      "button": "Sign In",
+      "or_continue_with": "Or continue with",
+      "terms_agreement": "By clicking Sign In, you agree to our",
+      "terms_of_service": "Terms of Service",
+      "and": "and",
+      "privacy_policy": "Privacy Policy",
+      "testimonial": "This template has saved me countless hours of work and helped me deliver stunning designs to my clients faster than ever before.",
+      "testimonial_author": "John Doe"
+    },
+    "sign_up": {
+      "title": "Create an account",
+      "description": "Enter your email and password to create an account.",
+      "already_have_account": "Already have an account?",
+      "sign_in_link": "Sign In",
+      "email_label": "Email",
+      "email_placeholder": "name@example.com",
+      "password_label": "Password",
+      "password_placeholder": "********",
+      "confirm_password_label": "Confirm Password",
+      "confirm_password_placeholder": "********",
+      "button": "Create Account",
+      "or_continue_with": "Or continue with",
+      "terms_agreement": "By creating an account, you agree to our",
+      "terms_of_service": "Terms of Service",
+      "and": "and",
+      "privacy_policy": "Privacy Policy"
+    },
+    "forgot_password": {
+      "title": "Forgot Password",
+      "description": "Enter your registered email address and we'll send you a password reset link.",
+      "email_label": "Email",
+      "email_placeholder": "name@example.com",
+      "button": "Continue",
+      "no_account": "Don't have an account?",
+      "sign_up_link": "Sign Up"
+    },
+    "otp": {
+      "title": "Two-Factor Authentication",
+      "description": "Please enter the authentication code. We've sent an authentication code to your email.",
+      "label": "One-time password",
+      "button": "Verify",
+      "not_received": "Didn't receive it?",
+      "resend_code": "Send a new code"
+    },
+    "validation": {
+      "email_required": "Please enter your email",
+      "email_invalid": "Invalid email address",
+      "password_required": "Please enter your password",
+      "password_min_length": "Password must be at least 7 characters",
+      "passwords_not_match": "Passwords do not match.",
+      "otp_required": "Please enter your otp code."
+    }
+  },
+  
+  "errors": {
+    "401": {
+      "title": "401",
+      "heading": "Unauthorized Access",
+      "description": "Please sign in with proper credentials to access this resource."
+    },
+    "403": {
+      "title": "403",
+      "heading": "Access Forbidden",
+      "description": "You don't have the necessary permissions to view this resource."
+    },
+    "404": {
+      "title": "404",
+      "heading": "Oops! Page Not Found!",
+      "description": "It seems the page you're looking for doesn't exist or may have been removed."
+    },
+    "500": {
+      "title": "500",
+      "heading": "Oops! Something went wrong",
+      "description": "We apologize for the inconvenience. Please try again later."
+    },
+    "503": {
+      "title": "503",
+      "heading": "Site Under Maintenance!",
+      "description": "The site is currently unavailable. We'll be back online soon."
+    },
+    "back": "Back",
+    "home": "Back to Home",
+    "learn_more": "Learn More"
+  }
+}
