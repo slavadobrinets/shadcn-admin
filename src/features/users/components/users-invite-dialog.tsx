@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslation } from 'react-i18next'
 import { IconMailPlus, IconSend } from '@tabler/icons-react'
 import { showSubmittedData } from '@/utils/show-submitted-data'
 import { Button } from '@/components/ui/button'
@@ -26,15 +27,15 @@ import { Textarea } from '@/components/ui/textarea'
 import { SelectDropdown } from '@/components/select-dropdown'
 import { userTypes } from '../data/data'
 
-const formSchema = z.object({
+const createFormSchema = (t: any) => z.object({
   email: z
     .string()
-    .min(1, { message: 'Электронная почта обязательна.' })
-    .email({ message: 'Электронная почта недействительна.' }),
-  role: z.string().min(1, { message: 'Роль обязательна.' }),
+    .min(1, { message: t('users.invite.errors.email_required') })
+    .email({ message: t('users.invite.errors.email_invalid') }),
+  role: z.string().min(1, { message: t('users.invite.errors.role_required') }),
   desc: z.string().optional(),
 })
-type UserInviteForm = z.infer<typeof formSchema>
+type UserInviteForm = z.infer<ReturnType<typeof createFormSchema>>
 
 interface Props {
   open: boolean
@@ -42,6 +43,8 @@ interface Props {
 }
 
 export function UsersInviteDialog({ open, onOpenChange }: Props) {
+  const { t } = useTranslation('common')
+  const formSchema = createFormSchema(t)
   const form = useForm<UserInviteForm>({
     resolver: zodResolver(formSchema),
     defaultValues: { email: '', role: '', desc: '' },
@@ -49,7 +52,7 @@ export function UsersInviteDialog({ open, onOpenChange }: Props) {
 
   const onSubmit = (values: UserInviteForm) => {
     form.reset()
-    showSubmittedData(values)
+    showSubmittedData(values, t('users.invite.submitted_data'))
     onOpenChange(false)
   }
 
@@ -64,10 +67,10 @@ export function UsersInviteDialog({ open, onOpenChange }: Props) {
       <DialogContent className='sm:max-w-md'>
         <DialogHeader className='text-left'>
           <DialogTitle className='flex items-center gap-2'>
-            <IconMailPlus /> Пригласить пользователя
+            <IconMailPlus /> {t('users.invite.title')}
           </DialogTitle>
           <DialogDescription>
-            Пригласите нового пользователя присоединиться к вашей команде, отправив ему приглашение по электронной почте. Назначьте роль, чтобы определить уровень его доступа.
+            {t('users.invite.description')}
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -81,11 +84,11 @@ export function UsersInviteDialog({ open, onOpenChange }: Props) {
               name='email'
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Электронная почта</FormLabel>
+                  <FormLabel>{t('users.invite.email_label')}</FormLabel>
                   <FormControl>
                     <Input
                       type='email'
-                      placeholder='например: ivan.ivanov@example.com'
+                      placeholder={t('users.invite.email_placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -98,11 +101,11 @@ export function UsersInviteDialog({ open, onOpenChange }: Props) {
               name='role'
               render={({ field }) => (
                 <FormItem className='space-y-1'>
-                  <FormLabel>Роль</FormLabel>
+                  <FormLabel>{t('users.invite.role_label')}</FormLabel>
                   <SelectDropdown
                     defaultValue={field.value}
                     onValueChange={field.onChange}
-                    placeholder='Выберите роль'
+                    placeholder={t('users.invite.role_placeholder')}
                     items={userTypes.map(({ label, value }) => ({
                       label,
                       value,
@@ -117,11 +120,11 @@ export function UsersInviteDialog({ open, onOpenChange }: Props) {
               name='desc'
               render={({ field }) => (
                 <FormItem className=''>
-                  <FormLabel>Описание (необязательно)</FormLabel>
+                  <FormLabel>{t('users.invite.description_label')}</FormLabel>
                   <FormControl>
                     <Textarea
                       className='resize-none'
-                      placeholder='Добавьте личную заметку к вашему приглашению (необязательно)'
+                      placeholder={t('users.invite.description_placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -133,10 +136,10 @@ export function UsersInviteDialog({ open, onOpenChange }: Props) {
         </Form>
         <DialogFooter className='gap-y-2'>
           <DialogClose asChild>
-            <Button variant='outline'>Отмена</Button>
+            <Button variant='outline'>{t('users.invite.cancel_button')}</Button>
           </DialogClose>
           <Button type='submit' form='user-invite-form'>
-            Пригласить <IconSend />
+            {t('users.invite.invite_button')} <IconSend />
           </Button>
         </DialogFooter>
       </DialogContent>

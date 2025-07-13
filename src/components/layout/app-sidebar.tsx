@@ -8,6 +8,7 @@ import {
 import { NavGroup } from '@/components/layout/nav-group'
 import { NavUser } from '@/components/layout/nav-user'
 import { TeamSwitcher } from '@/components/layout/team-switcher'
+import { LanguageSwitch } from '@/components/language-switch'
 import { sidebarData } from './data/sidebar-data'
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -22,6 +23,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         ))}
       </SidebarContent>
       <SidebarFooter>
+        <div className="mb-2 px-4">
+          <LanguageSwitch />
+        </div>
         <NavUser user={sidebarData.user} />
       </SidebarFooter>
       <SidebarRail />

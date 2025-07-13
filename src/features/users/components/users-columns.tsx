@@ -1,9 +1,8 @@
 import { ColumnDef } from '@tanstack/react-table'
 import { cn } from '@/lib/utils'
-import { Badge } from '@/components/ui/badge'
 import { Checkbox } from '@/components/ui/checkbox'
 import LongText from '@/components/long-text'
-import { callTypes, getStatuses, getUserTypes } from '../data/data'
+import { getUserTypes } from '../data/data'
 import { User } from '../data/schema'
 import { DataTableColumnHeader } from './data-table-column-header'
 import { DataTableRowActions } from './data-table-row-actions'
@@ -43,12 +42,12 @@ export function createColumns(t: TFunction): ColumnDef<User>[] {
     enableHiding: false,
   },
   {
-    accessorKey: 'username',
+    accessorKey: 'login',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title={t('users.column.username')} />
+      <DataTableColumnHeader column={column} title={t('users.column.login')} />
     ),
     cell: ({ row }) => (
-      <LongText className='max-w-36'>{row.getValue('username')}</LongText>
+      <LongText className='max-w-36'>{row.getValue('login')}</LongText>
     ),
     meta: {
       className: cn(
@@ -60,16 +59,31 @@ export function createColumns(t: TFunction): ColumnDef<User>[] {
     enableHiding: false,
   },
   {
-    id: 'fullName',
+    accessorKey: 'full_name',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title={t('users.column.name')} />
     ),
-    cell: ({ row }) => {
-      const { firstName, lastName } = row.original
-      const fullName = `${firstName} ${lastName}`
-      return <LongText className='max-w-36'>{fullName}</LongText>
-    },
-    meta: { className: 'w-36' },
+    cell: ({ row }) => (
+      <div className='w-fit text-nowrap'>{row.getValue('full_name')}</div>
+    ),
+  },
+  {
+    accessorKey: 'department',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title={t('users.column.department')} />
+    ),
+    cell: ({ row }) => (
+      <div className='w-fit text-nowrap'>{row.getValue('department')}</div>
+    ),
+  },
+  {
+    accessorKey: 'position',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title={t('users.column.position')} />
+    ),
+    cell: ({ row }) => (
+      <div className='w-fit text-nowrap'>{row.getValue('position')}</div>
+    ),
   },
   {
     accessorKey: 'email',
@@ -79,44 +93,6 @@ export function createColumns(t: TFunction): ColumnDef<User>[] {
     cell: ({ row }) => (
       <div className='w-fit text-nowrap'>{row.getValue('email')}</div>
     ),
-  },
-  {
-    accessorKey: 'phoneNumber',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title={t('users.column.phone')} />
-    ),
-    cell: ({ row }) => <div>{row.getValue('phoneNumber')}</div>,
-    enableSorting: false,
-  },
-  {
-    accessorKey: 'status',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title={t('users.column.status')} />
-    ),
-    cell: ({ row }) => {
-      const statuses = getStatuses(t)
-      const status = statuses.find(
-        (status) => status.value === row.getValue('status')
-      )
-
-      if (!status) {
-        return null
-      }
-
-      const badgeColor = callTypes.get(status.value)
-      return (
-        <div className='flex space-x-2'>
-          <Badge variant='outline' className={cn('capitalize', badgeColor)}>
-            {status.label}
-          </Badge>
-        </div>
-      )
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id))
-    },
-    enableHiding: false,
-    enableSorting: false,
   },
   {
     accessorKey: 'role',
@@ -150,6 +126,9 @@ export function createColumns(t: TFunction): ColumnDef<User>[] {
   {
     id: 'actions',
     cell: DataTableRowActions,
+    meta: {
+      className: 'text-right',
+    },
   },
   ]
 }

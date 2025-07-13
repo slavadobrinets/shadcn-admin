@@ -218,6 +218,135 @@
     }
   },
   
+  "students": {
+    "title": "Список студентов",
+    "subtitle": "Управляйте своими студентами и их ролями здесь.",
+    "select_all": "Выбрать все",
+    "select_row": "Выбрать строку",
+    "filter_placeholder": "Фильтровать студентов...",
+    "reset_filters": "Сбросить фильтры",
+    "no_results": "Нет результатов.",
+    "column": {
+      "login": "Логин",
+      "name": "Фамилия Имя Отчество",
+      "email": "Электронная почта",
+      "department": "Кафедра",
+      "group": "Группа",
+      "group_id": "Группа",
+      "role": "Роль",
+      "status": "Статус"
+    },
+    "role": {
+      "student": "Студент",
+      "graduate": "Выпускник"
+    },
+    "status": {
+      "active": "Активен",
+      "inactive": "Неактивен",
+      "invited": "Приглашен",
+      "suspended": "Приостановлен",
+      "graduate": "Выпускник"
+    },
+    "table": {
+      "view": "Вид",
+      "toggle_columns": "Переключить столбцы",
+      "rows_selected": "Выбрано {{count}} из {{total}} строк.",
+      "rows_per_page": "Строк на страницу",
+      "page": "Страница {{current}} из {{total}}",
+      "go_to_first_page": "Перейти на первую страницу",
+      "go_to_previous_page": "Перейти на предыдущую страницу",
+      "go_to_next_page": "Перейти на следующую страницу",
+      "go_to_last_page": "Перейти на последнюю страницу",
+      "open_menu": "Открыть меню",
+      "edit": "Редактировать",
+      "delete": "Удалить",
+      "sort": {
+        "asc": "По возрастанию",
+        "desc": "По убыванию",
+        "hide": "Скрыть"
+      },
+      "filter": {
+        "selected": "{{count}} выбрано",
+        "no_results": "Результаты не найдены.",
+        "clear_filters": "Очистить фильтры"
+      }
+    },
+    "delete": {
+      "title": "Удалить студента",
+      "confirmation_question": "Вы уверены, что хотите удалить {login}?",
+      "warning_role": "Это действие навсегда удалит студента с ролью {role} из системы. Это действие не может быть отменено.",
+      "username_label": "Имя пользователя:",
+      "username_placeholder": "Введите имя пользователя для подтверждения удаления.",
+      "alert_title": "Внимание!",
+      "alert_description": "Будьте осторожны, эту операцию нельзя отменить.",
+      "confirm_button": "Удалить",
+      "success_message": "Следующий студент был удален:"
+    },
+    "form": {
+      "edit_title": "Редактировать студента",
+      "add_title": "Добавить нового студента",
+      "edit_description": "Обновите студента здесь. ",
+      "add_description": "Создайте нового студента здесь. ",
+      "save_instruction": "Нажмите сохранить, когда закончите.",
+      "full_name": "Фамилия Имя Отчество",
+      "full_name_placeholder": "Иванов Иван Иванович",
+      "username": "Имя пользователя",
+      "username_placeholder": "ivan_ivanov",
+      "email": "Электронная почта",
+      "email_placeholder": "ivan.ivanov@example.com",
+      "department": "Кафедра",
+      "department_placeholder": "Кафедра УСР",
+      "group": "Группа",
+      "group_placeholder": "Выберите группу",
+      "group_search_placeholder": "Поиск группы...",
+      "group_not_found": "Группа не найдена",
+      "role": "Роль",
+      "role_placeholder": "Выберите роль",
+      "password": "Пароль",
+      "password_placeholder": "например, S3cur3P@ssw0rd",
+      "confirm_password": "Подтвердите пароль",
+      "confirm_password_placeholder": "например, S3cur3P@ssw0rd",
+      "save_button": "Сохранить изменения",
+      "submitted_data": "Вы отправили следующие данные:",
+      "errors": {
+        "name_required": "Имя обязательно.",
+        "username_required": "Имя пользователя обязательно.",
+        "department_required": "Кафедра обязательна.",
+        "group_required": "Группа обязательна.",
+        "email_required": "Электронная почта обязательна.",
+        "email_invalid": "Электронная почта недействительна.",
+        "password_required": "Пароль обязателен.",
+        "password_min_length": "Пароль должен содержать не менее 8 символов.",
+        "password_lowercase": "Пароль должен содержать хотя бы одну строчную букву.",
+        "password_number": "Пароль должен содержать хотя бы одну цифру.",
+        "passwords_not_match": "Пароли не совпадают.",
+        "role_required": "Роль обязательна."
+      }
+    },
+    "invite": {
+      "title": "Пригласить студента",
+      "description": "Пригласите нового студента присоединиться к вашей команде, отправив ему приглашение по электронной почте. Назначьте роль, чтобы определить уровень его доступа.",
+      "email_label": "Электронная почта",
+      "email_placeholder": "например: ivan.ivanov@example.com",
+      "role_label": "Роль",
+      "role_placeholder": "Выберите роль",
+      "description_label": "Описание (необязательно)",
+      "description_placeholder": "Добавьте личную заметку к вашему приглашению (необязательно)",
+      "cancel_button": "Отмена",
+      "invite_button": "Пригласить",
+      "submitted_data": "Вы отправили следующие данные:",
+      "errors": {
+        "email_required": "Электронная почта обязательна.",
+        "email_invalid": "Электронная почта недействительна.",
+        "role_required": "Роль обязательна."
+      }
+    },
+    "buttons": {
+      "invite_student": "Пригласить студента",
+      "add_student": "Добавить студента"
+    }
+  },
+  
   "users": {
     "title": "Список пользователей",
     "subtitle": "Управляйте своими пользователями и их ролями здесь.",
@@ -227,17 +356,18 @@
     "reset_filters": "Сбросить фильтры",
     "no_results": "Нет результатов.",
     "column": {
-      "username": "Имя пользователя",
-      "name": "Имя",
+      "login": "Логин",
+      "name": "Фамилия Имя Отчество",
       "email": "Электронная почта",
-      "phone": "Номер телефона",
+      "department": "Кафедра",
+      "position": "Должность",
       "status": "Статус",
       "role": "Роль"
     },
     "role": {
       "superadmin": "Суперадмин",
       "admin": "Админ",
-      "manager": "Менеджер",
+      "teacher": "Преподаватель",
       "cashier": "Кассир"
     },
     "status": {
@@ -301,6 +431,74 @@
         "desc_placeholder": "Добавьте личную заметку к вашему приглашению (необязательно)",
         "cancel_button": "Отмена",
         "invite_button": "Пригласить"
+      }
+    },
+    "delete": {
+      "title": "Удалить пользователя",
+      "confirmation_question": "Вы уверены, что хотите удалить {login}?",
+      "warning_role": "Это действие навсегда удалит пользователя с ролью {role} из системы. Это действие не может быть отменено.",
+      "username_label": "Имя пользователя:",
+      "username_placeholder": "Введите имя пользователя для подтверждения удаления.",
+      "alert_title": "Внимание!",
+      "alert_description": "Будьте осторожны, эту операцию нельзя отменить.",
+      "confirm_button": "Удалить",
+      "success_message": "Следующий пользователь был удален:"
+    },
+    "form": {
+      "edit_title": "Редактировать пользователя",
+      "add_title": "Добавить нового пользователя",
+      "edit_description": "Обновите пользователя здесь. ",
+      "add_description": "Создайте нового пользователя здесь. ",
+      "save_instruction": "Нажмите сохранить, когда закончите.",
+      "full_name": "Фамилия Имя Отчество",
+      "full_name_placeholder": "Иван",
+      "username": "Имя пользователя",
+      "username_placeholder": "ivan_ivanov",
+      "email": "Электронная почта",
+      "email_placeholder": "ivan.ivanov@example.com",
+      "department": "Кафедра",
+      "department_placeholder": "Кафедра УСР",
+      "position": "Должность",
+      "position_placeholder": "Старший преподаватель",
+      "role": "Роль",
+      "role_placeholder": "Выберите роль",
+      "password": "Пароль",
+      "password_placeholder": "например, S3cur3P@ssw0rd",
+      "confirm_password": "Подтвердите пароль",
+      "confirm_password_placeholder": "например, S3cur3P@ssw0rd",
+      "save_button": "Сохранить изменения",
+      "submitted_data": "Вы отправили следующие данные:",
+      "errors": {
+        "name_required": "Имя обязательно.",
+        "username_required": "Имя пользователя обязательно.",
+        "department_required": "Кафедра обязательна.",
+        "position_required": "Должность обязательна.",
+        "email_required": "Электронная почта обязательна.",
+        "email_invalid": "Электронная почта недействительна.",
+        "password_required": "Пароль обязателен.",
+        "password_min_length": "Пароль должен содержать не менее 8 символов.",
+        "password_lowercase": "Пароль должен содержать хотя бы одну строчную букву.",
+        "password_number": "Пароль должен содержать хотя бы одну цифру.",
+        "passwords_not_match": "Пароли не совпадают.",
+        "role_required": "Роль обязательна."
+      }
+    },
+    "invite": {
+      "title": "Пригласить пользователя",
+      "description": "Пригласите нового пользователя присоединиться к вашей команде, отправив ему приглашение по электронной почте. Назначьте роль, чтобы определить уровень его доступа.",
+      "email_label": "Электронная почта",
+      "email_placeholder": "например: ivan.ivanov@example.com",
+      "role_label": "Роль",
+      "role_placeholder": "Выберите роль",
+      "description_label": "Описание (необязательно)",
+      "description_placeholder": "Добавьте личную заметку к вашему приглашению (необязательно)",
+      "cancel_button": "Отмена",
+      "invite_button": "Пригласить",
+      "submitted_data": "Вы отправили следующие данные:",
+      "errors": {
+        "email_required": "Электронная почта обязательна.",
+        "email_invalid": "Электронная почта недействительна.",
+        "role_required": "Роль обязательна."
       }
     },
     "buttons": {
@@ -499,6 +697,8 @@
       "apps": "Приложения",
       "chats": "Чаты",
       "users": "Пользователи",
+      "students": "Студенты",
+      "groups": "Группы",
       "clerk_protected": "Защищено с помощью Clerk",
       "sign_in": "Войти",
       "sign_up": "Зарегистрироваться",
@@ -583,6 +783,100 @@
       "password_min_length": "Пароль должен содержать не менее 7 символов",
       "passwords_not_match": "Пароли не совпадают.",
       "otp_required": "Пожалуйста, введите ваш otp код."
+    }
+  },
+  
+  "groups": {
+    "title": "Группы",
+    "subtitle": "Управляйте группами студентов здесь.",
+    "select_all": "Выбрать все",
+    "select_row": "Выбрать строку",
+    "no_results": "Нет результатов.",
+    "filter_placeholder": "Фильтровать группы...",
+    "reset_filters": "Сбросить фильтры",
+    "groups_count": "групп",
+    "loading_error": "Ошибка загрузки групп",
+    "column": {
+      "name": "Название",
+      "created_at": "Дата создания",
+      "students_count": "Количество студентов"
+    },
+    "table": {
+      "open_menu": "Открыть меню",
+      "edit": "Редактировать",
+      "delete": "Удалить",
+      "view": "Вид",
+      "view_details": "Просмотр деталей",
+      "toggle_columns": "Переключить столбцы",
+      "rows_selected": "Выбрано {{selected}} из {{total}} строк.",
+      "rows_per_page": "Строк на страницу",
+      "page": "Страница {{current}} из {{total}}",
+      "go_to_first_page": "Перейти на первую страницу",
+      "go_to_previous_page": "Перейти на предыдущую страницу",
+      "go_to_next_page": "Перейти на следующую страницу",
+      "go_to_last_page": "Перейти на последнюю страницу",
+      "sort": {
+        "asc": "По возрастанию",
+        "desc": "По убыванию",
+        "hide": "Скрыть"
+      }
+    },
+    "buttons": {
+      "add_group": "Добавить группу",
+      "export": "Экспорт",
+      "delete_selected": "Удалить выбранные"
+    },
+    "delete_confirmation": "Выбрано {{count}} групп для удаления",
+    "view": {
+      "title": "Информация о группе",
+      "description": "Подробная информация о группе и ее студентах.",
+      "students": "студентов",
+      "close": "Закрыть",
+      "view_students": "Просмотр студентов"
+    },
+    "students": {
+      "title": "Студенты группы {{groupName}}",
+      "description": "Список студентов, входящих в данную группу.",
+      "search_placeholder": "Поиск студентов...",
+      "no_results": "Студенты не найдены.",
+      "close": "Закрыть"
+    },
+    "add_student": {
+      "button": "Добавить студента",
+      "title": "Добавить студента в группу",
+      "description": "Выберите студента, которого хотите добавить в группу {{groupName}}.",
+      "student": "Студент",
+      "select_student": "Выберите студента",
+      "loading_students": "Загрузка студентов...",
+      "no_available_students": "Нет доступных студентов",
+      "cancel": "Отмена",
+      "adding": "Добавление...",
+      "add": "Добавить",
+      "errors": {
+        "student_required": "Необходимо выбрать студента"
+      }
+    },
+    "form": {
+      "edit_title": "Редактировать группу",
+      "add_title": "Добавить новую группу",
+      "edit_description": "Обновите группу здесь. ",
+      "add_description": "Создайте новую группу здесь. ",
+      "save_instruction": "Нажмите сохранить, когда закончите.",
+      "name": "Название",
+      "name_placeholder": "Введите название группы",
+      "save_button": "Сохранить",
+      "submitted_data": "Вы отправили следующие данные:",
+      "errors": {
+        "name_required": "Название группы обязательно."
+      }
+    },
+    "delete": {
+      "title": "Удалить группу",
+      "description": "Вы уверены, что хотите удалить эту группу? Это действие не может быть отменено.",
+      "group_name": "Название группы",
+      "confirm_button": "Удалить",
+      "cancel_button": "Отмена",
+      "submitted_data": "Следующая группа была удалена:"
     }
   },
   

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { IconAlertTriangle } from '@tabler/icons-react'
 import { showSubmittedData } from '@/utils/show-submitted-data'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -16,13 +17,14 @@ interface Props {
 }
 
 export function UsersDeleteDialog({ open, onOpenChange, currentRow }: Props) {
+  const { t } = useTranslation('common')
   const [value, setValue] = useState('')
 
   const handleDelete = () => {
-    if (value.trim() !== currentRow.username) return
+    if (value.trim() !== currentRow.login) return
 
     onOpenChange(false)
-    showSubmittedData(currentRow, 'Следующий пользователь был удален:')
+    showSubmittedData(currentRow, t('users.delete.success_message'))
   }
 
   return (
@@ -30,47 +32,42 @@ export function UsersDeleteDialog({ open, onOpenChange, currentRow }: Props) {
       open={open}
       onOpenChange={onOpenChange}
       handleConfirm={handleDelete}
-      disabled={value.trim() !== currentRow.username}
+      disabled={value.trim() !== currentRow.login}
       title={
         <span className='text-destructive'>
           <IconAlertTriangle
             className='stroke-destructive mr-1 inline-block'
             size={18}
           />{' '}
-          Удалить пользователя
+          {t('users.delete.title')}
         </span>
       }
       desc={
         <div className='space-y-4'>
           <p className='mb-2'>
-            Вы уверены, что хотите удалить{' '}
-            <span className='font-bold'>{currentRow.username}</span>?
+            {t('users.delete.confirmation_question', { login: currentRow.login })}{' '}
             <br />
-            Это действие навсегда удалит пользователя с ролью{' '}
-            <span className='font-bold'>
-              {currentRow.role.toUpperCase()}
-            </span>{' '}
-            из системы. Это действие не может быть отменено.
+            {t('users.delete.warning_role', { role: currentRow.role.toUpperCase() })}
           </p>
 
           <Label className='my-2'>
-            Имя пользователя:
+            {t('users.delete.username_label')}
             <Input
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              placeholder='Введите имя пользователя для подтверждения удаления.'
+              placeholder={t('users.delete.username_placeholder')}
             />
           </Label>
 
           <Alert variant='destructive'>
-            <AlertTitle>Внимание!</AlertTitle>
+            <AlertTitle>{t('users.delete.alert_title')}</AlertTitle>
             <AlertDescription>
-              Будьте осторожны, эту операцию нельзя отменить.
+              {t('users.delete.alert_description')}
             </AlertDescription>
           </Alert>
         </div>
       }
-      confirmText='Удалить'
+      confirmText={t('users.delete.confirm_button')}
       destructive
     />
   )

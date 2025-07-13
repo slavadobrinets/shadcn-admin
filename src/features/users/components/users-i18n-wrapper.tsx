@@ -2,14 +2,14 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { ColumnDef } from '@tanstack/react-table'
 import { User } from '../data/schema'
-import { columns as originalColumns } from './users-columns'
+import { createColumns } from './users-columns'
 import { DataTableColumnHeader } from './data-table-column-header'
 
 export function useUsersColumns(): ColumnDef<User>[] {
   const { t } = useTranslation('common')
   
-  // Создаем копию оригинальных колонок
-  const translatedColumns = [...originalColumns]
+  // Создаем колонки с функцией перевода
+  const translatedColumns = [...createColumns(t)]
   
   // Обновляем заголовки колонок
   translatedColumns.forEach((column) => {
@@ -33,30 +33,30 @@ export function useUsersColumns(): ColumnDef<User>[] {
         })
       }
     } else if ('accessorKey' in column) {
-      if (column.accessorKey === 'username') {
+      if (column.accessorKey === 'login') {
         column.header = ({ column }) => (
-          <DataTableColumnHeader column={column} title={t('users.column.username')} />
+          <DataTableColumnHeader column={column} title={t('users.column.login')} />
         )
       } else if (column.accessorKey === 'email') {
         column.header = ({ column }) => (
           <DataTableColumnHeader column={column} title={t('users.column.email')} />
         )
-      } else if (column.accessorKey === 'phoneNumber') {
+      } else if (column.accessorKey === 'department') {
         column.header = ({ column }) => (
-          <DataTableColumnHeader column={column} title={t('users.column.phone')} />
+          <DataTableColumnHeader column={column} title={t('users.column.department')} />
         )
-      } else if (column.accessorKey === 'status') {
+      } else if (column.accessorKey === 'position') {
         column.header = ({ column }) => (
-          <DataTableColumnHeader column={column} title={t('users.column.status')} />
+          <DataTableColumnHeader column={column} title={t('users.column.position')} />
         )
       } else if (column.accessorKey === 'role') {
         column.header = ({ column }) => (
           <DataTableColumnHeader column={column} title={t('users.column.role')} />
         )
       }
-    } else if (column.id === 'fullName') {
+    } else if (column.id === 'full_name') {
       column.header = ({ column }) => (
-        <DataTableColumnHeader column={column} title={t('users.column.name')} />
+        <DataTableColumnHeader column={column} title={t('users.column.full_name')} />
       )
     }
   })

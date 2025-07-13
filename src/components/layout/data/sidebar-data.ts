@@ -12,6 +12,7 @@ import {
   IconNotification,
   IconPackages,
   IconPalette,
+  IconSchool,
   IconServerOff,
   IconSettings,
   IconTool,
@@ -56,6 +57,21 @@ export const sidebarData: SidebarData = {
           title: 'sidebar.items.dashboard',
           url: '/',
           icon: IconLayoutDashboard,
+        },        
+        {
+          title: 'sidebar.items.students',
+          url: '/students',
+          icon: IconSchool,
+        },
+        {
+          title: 'sidebar.items.groups',
+          url: '/groups',
+          icon: IconSchool,
+        },
+        {
+          title: 'sidebar.items.users',
+          url: '/users',
+          icon: IconUsers,
         },
         {
           title: 'sidebar.items.tasks',
@@ -72,11 +88,6 @@ export const sidebarData: SidebarData = {
           url: '/chats',
           badge: '3',
           icon: IconMessages,
-        },
-        {
-          title: 'sidebar.items.users',
-          url: '/users',
-          icon: IconUsers,
         },
         {
           title: 'sidebar.items.clerk_protected',
