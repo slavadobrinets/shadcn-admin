@@ -1,8 +1,33 @@
 import {
   IconUsersGroup,
   IconUserShield,
+  IconBuilding,
 } from '@tabler/icons-react'
 import { TFunction } from 'i18next'
+
+// Создаем функцию, которая возвращает массив кафедр с локализованными метками
+export const getDepartments = (t: TFunction) => [
+  {
+    label: t('users.department.psychology'),
+    value: 'psychology',
+    icon: IconBuilding,
+  },
+  {
+    label: t('users.department.management'),
+    value: 'management',
+    icon: IconBuilding,
+  },
+  {
+    label: t('users.department.social'),
+    value: 'social',
+    icon: IconBuilding,
+  },
+  {
+    label: t('users.department.law'),
+    value: 'law',
+    icon: IconBuilding,
+  },
+] as const
 
 // Создаем функцию, которая возвращает массив типов пользователей с локализованными метками
 export const getUserTypes = (t: TFunction) => [  

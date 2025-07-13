@@ -4,7 +4,9 @@ import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslation } from 'react-i18next'
-import { showSubmittedData } from '@/utils/show-submitted-data'
+import { showSuccessMessage, showErrorMessage } from '@/utils/show-submitted-data'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { createSupabaseUser, updateSupabaseUser } from '../api/users'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -25,10 +27,11 @@ import {
 import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/password-input'
 import { SelectDropdown } from '@/components/select-dropdown'
-import { userTypes } from '../data/data'
-import { User } from '../data/schema'
+import { userTypes, getDepartments } from '../data/data'
+import { User, UserInput } from '../data/schema'
 
 
+// Создаем схему формы
 const createFormSchema = (t: any) => z
   .object({
     full_name: z.string().min(1, { message: t('users.form.errors.name_required') }),
@@ -40,7 +43,10 @@ const createFormSchema = (t: any) => z
       .min(1, { message: t('users.form.errors.email_required') })
       .email({ message: t('users.form.errors.email_invalid') }),
     password: z.string().transform((pwd) => pwd.trim()),
-    role: z.string().min(1, { message: t('users.form.errors.role_required') }),
+    role: z.enum(['admin', 'teacher'], {
+      required_error: t('users.form.errors.role_required'),
+      invalid_type_error: t('users.form.errors.role_invalid'),
+    }),
     confirmPassword: z.string().transform((pwd) => pwd.trim()),
     isEdit: z.boolean(),
   })
@@ -114,17 +120,86 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
           department: '',
           position: '',
           email: '',
-          role: '',
+          role: 'teacher', // Устанавливаем значение по умолчанию
           password: '',
           confirmPassword: '',
           isEdit,
         },
   })
 
-  const onSubmit = (values: UserForm) => {
-    form.reset()
-    showSubmittedData(values, t('users.form.submitted_data'))
-    onOpenChange(false)
+  // Получаем queryClient для инвалидации кэша после мутации
+  const queryClient = useQueryClient()
+
+  // Мутация для создания нового пользователя
+  const createMutation = useMutation({
+    mutationFn: (userData: UserInput) => createSupabaseUser(userData),
+    onSuccess: () => {
+      // Инвалидируем кэш, чтобы получить обновленные данные
+      queryClient.invalidateQueries({ queryKey: ['supabaseUsers'] })
+    },
+  })
+
+  // Мутация для обновления существующего пользователя
+  const updateMutation = useMutation({
+    mutationFn: ({ id, userData }: { id: string; userData: Partial<UserInput> }) => 
+      updateSupabaseUser(id, userData),
+    onSuccess: () => {
+      // Инвалидируем кэш, чтобы получить обновленные данные
+      queryClient.invalidateQueries({ queryKey: ['supabaseUsers'] })
+    },
+  })
+
+  const onSubmit = async (values: UserForm) => {
+    try {
+      // Удаляем служебные поля перед отправкой
+      const { isEdit, confirmPassword, ...userData } = values;
+      
+      if (isEdit && currentRow) {
+        // Обновляем существующего пользователя
+        const updateData: Partial<UserInput> = {
+          full_name: userData.full_name,
+          login: userData.login,
+          email: userData.email,
+          department: userData.department,
+          position: userData.position,
+          role: userData.role
+        };
+        
+        // Добавляем пароль только если он был изменен
+        if (userData.password) {
+          updateData.password = userData.password;
+        }
+        
+        await updateMutation.mutateAsync({ 
+          id: currentRow.id, 
+          userData: updateData
+        });
+        showSuccessMessage(t('users.form.update_success'));
+      } else {
+        // Создаем нового пользователя
+        const newUser: UserInput = {
+          full_name: userData.full_name,
+          login: userData.login,
+          email: userData.email,
+          department: userData.department,
+          position: userData.position,
+          role: userData.role,
+          password: userData.password
+        };
+        
+        await createMutation.mutateAsync(newUser);
+        showSuccessMessage(t('users.form.create_success'));
+      }
+      
+      form.reset();
+      onOpenChange(false);
+    } catch (error) {
+      console.error('Ошибка при сохранении пользователя:', error);
+      showErrorMessage(
+        t('users.form.error'),
+        error
+      );
+    }
   }
 
   const isPasswordTouched = !!form.formState.dirtyFields.password
@@ -218,13 +293,16 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                     <FormLabel className='col-span-2 text-right'>
                       {t('users.form.department')}
                     </FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder={t('users.form.department_placeholder')}
-                        className='col-span-4'
-                        {...field}
-                      />
-                    </FormControl>
+                    <SelectDropdown
+                      defaultValue={field.value}
+                      onValueChange={field.onChange}
+                      placeholder="Выберите кафедру"
+                      className='col-span-4'
+                      items={getDepartments(t).map(({ label, value }) => ({
+                        label,
+                        value,
+                      }))}
+                    />
                     <FormMessage className='col-span-4 col-start-3' />
                   </FormItem>
                 )}
@@ -312,11 +390,17 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
             </form>
           </Form>
         </div>
-        <DialogFooter>
-          <Button type='submit' form='user-form'>
-            {t('users.form.save_button')}
-          </Button>
-        </DialogFooter>
+      <DialogFooter>
+        <Button 
+          type='submit' 
+          form='user-form'
+          disabled={createMutation.isPending || updateMutation.isPending}
+        >
+          {createMutation.isPending || updateMutation.isPending 
+            ? t('users.form.saving') 
+            : t('users.form.save_button')}
+        </Button>
+      </DialogFooter>
       </DialogContent>
     </Dialog>
   )

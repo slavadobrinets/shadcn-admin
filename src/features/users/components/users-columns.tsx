@@ -2,7 +2,7 @@ import { ColumnDef } from '@tanstack/react-table'
 import { cn } from '@/lib/utils'
 import { Checkbox } from '@/components/ui/checkbox'
 import LongText from '@/components/long-text'
-import { getUserTypes } from '../data/data'
+import { getUserTypes, getDepartments } from '../data/data'
 import { User } from '../data/schema'
 import { DataTableColumnHeader } from './data-table-column-header'
 import { DataTableRowActions } from './data-table-row-actions'
@@ -72,9 +72,24 @@ export function createColumns(t: TFunction): ColumnDef<User>[] {
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title={t('users.column.department')} />
     ),
-    cell: ({ row }) => (
-      <div className='w-fit text-nowrap'>{row.getValue('department')}</div>
-    ),
+    cell: ({ row }) => {
+      const department = row.getValue('department') as string
+      const departments = getDepartments(t)
+      const departmentInfo = departments.find(({ value }) => value === department)
+
+      if (!departmentInfo) {
+        return <div className='w-fit text-nowrap'>{department}</div>
+      }
+
+      return (
+        <div className='flex items-center gap-x-2'>          
+          <span className='text-sm'>{departmentInfo.label}</span>
+        </div>
+      )
+    },
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id))
+    },
   },
   {
     accessorKey: 'position',

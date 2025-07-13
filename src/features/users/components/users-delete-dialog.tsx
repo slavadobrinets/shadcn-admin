@@ -3,12 +3,14 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { IconAlertTriangle } from '@tabler/icons-react'
-import { showSubmittedData } from '@/utils/show-submitted-data'
+import { showSuccessMessage, showErrorMessage } from '@/utils/show-submitted-data'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { ConfirmDialog } from '@/components/confirm-dialog'
 import { User } from '../data/schema'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { deleteSupabaseUser } from '../api/users'
 
 interface Props {
   open: boolean
@@ -19,12 +21,35 @@ interface Props {
 export function UsersDeleteDialog({ open, onOpenChange, currentRow }: Props) {
   const { t } = useTranslation('common')
   const [value, setValue] = useState('')
+  
+  // Получаем queryClient для инвалидации кэша после мутации
+  const queryClient = useQueryClient()
+  
+  // Мутация для удаления пользователя
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => deleteSupabaseUser(id),
+    onSuccess: () => {
+      // Инвалидируем кэш, чтобы получить обновленные данные
+      queryClient.invalidateQueries({ queryKey: ['supabaseUsers'] })
+    },
+  })
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (value.trim() !== currentRow.login) return
 
-    onOpenChange(false)
-    showSubmittedData(currentRow, t('users.delete.success_message'))
+    try {
+      // Удаляем пользователя из базы данных
+      await deleteMutation.mutateAsync(currentRow.id)
+      
+      onOpenChange(false)
+      showSuccessMessage(t('users.delete.success_message'))
+    } catch (error) {
+      console.error('Ошибка при удалении пользователя:', error)
+      showErrorMessage(
+        t('users.delete.error_message'),
+        error
+      )
+    }
   }
 
   return (

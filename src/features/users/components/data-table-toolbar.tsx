@@ -2,7 +2,7 @@ import { Cross2Icon } from '@radix-ui/react-icons'
 import { Table } from '@tanstack/react-table'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { getUserTypes } from '../data/data'
+import { getUserTypes, getDepartments } from '../data/data'
 import { DataTableFacetedFilter } from './data-table-faceted-filter'
 import { DataTableViewOptions } from './data-table-view-options'
 import { useTranslation } from 'react-i18next'
@@ -23,14 +23,15 @@ export function DataTableToolbar<TData>({
         <Input
           placeholder={t('apps.filter_placeholder')}
           value={
-            (table.getColumn('username')?.getFilterValue() as string) ?? ''
+            (table.getColumn('login')?.getFilterValue() as string) ?? ''
           }
           onChange={(event) =>
-            table.getColumn('username')?.setFilterValue(event.target.value)
+            table.getColumn('login')?.setFilterValue(event.target.value)
           }
           className='h-8 w-[150px] lg:w-[250px]'
         />
         <div className='flex gap-x-2'>
+          {/* Закомментировано, так как в схеме данных нет поля status
           {table.getColumn('status') && (
             <DataTableFacetedFilter
               column={table.getColumn('status')}
@@ -43,11 +44,19 @@ export function DataTableToolbar<TData>({
               ]}
             />
           )}
+          */}
           {table.getColumn('role') && (
             <DataTableFacetedFilter
               column={table.getColumn('role')}
               title={t('users.column.role')}
               options={getUserTypes(t).map((type) => ({ ...type }))}
+            />
+          )}
+          {table.getColumn('department') && (
+            <DataTableFacetedFilter
+              column={table.getColumn('department')}
+              title="Кафедра"
+              options={getDepartments(t).map((dept) => ({ ...dept }))}
             />
           )}
         </div>
